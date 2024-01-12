@@ -1,0 +1,39 @@
+{{- $scr := .Scratch -}}
+{
+    "name": "{{site.Title}}",
+    "short_name": "{{ slicestr site.Title 3 12 | safeHTML }}",
+    "lang": "{{ site.LanguageCode | default "en-us" }}",
+    "theme_color": "{{ $scr.Get "primary" }}",
+    "background_color": "{{ $scr.Get "primary" }}",
+    "icons": [{
+      "src": "/img/favicons/favicon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-270x270.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+    "display": "standalone",
+    "start_url": "{{ "/" | relLangURL }}?utm_source=web_app_manifest"
+  }

@@ -1,0 +1,14 @@
+{{ if .Site.Params.fixedphone }}
+<div data-scroll-group="header-group">
+    <nav id="phoneNav" class="navbar is-fixed-bottom is-hidden-desktop">
+        <div class="navbar-start is-expanded has-background-success">
+            {{ if .Site.Params.phone }}
+            <a class="navbar-item" href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone }}</a>
+            {{ end }}
+            {{ if .Site.Params.phone2 }}
+            <a class="navbar-item" href="tel:{{ .Site.Params.phone2 }}">{{ .Site.Params.phone2 }}</a>   
+            {{ end }}
+        </div>
+    </nav>
+  </div>
+  {{ end }}

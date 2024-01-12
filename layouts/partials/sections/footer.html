@@ -1,0 +1,83 @@
+<footer class="footer has-background-primary has-text-white">
+    <div class="container">
+        <div class="columns">
+            {{ if isset .Site.Params "about_us" }}
+            <div class="column is-4">
+                <h4 class="title is-4 is-uppercase">{{ i18n "aboutUs" }}</h4>
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    data-src="{{ .Site.BaseURL }}{{ .Site.Params.logo.url }}" alt="{{ .Title }} logo"
+                    class="logo is-hidden-touch">
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    data-src="{{ .Site.BaseURL }}{{ .Site.Params.logosmall.url }}" alt="{{ .Title }} logo"
+                    class="logo is-hidden-desktop">
+                <span class="is-sr-only">{{ .Title }} - {{ i18n "navHome" }}</span>
+                {{ .Site.Params.footer_about_us | markdownify }}
+                <hr>
+                {{ range .Site.Menus.footerbar.ByWeight }}
+                <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow">{{ .Pre }} <span
+                        class="hidden-text">{{ .Name }}</span></a>
+                {{ end }}
+            </div>
+            {{ end }}
+            <div class="column">
+                {{ if isset .Site.Params "recent_posts" }}
+                {{ if .Site.Params.recent_posts.enable }}
+                <h4 class="title is-4 is-uppercase">{{ i18n "recentPosts" }}</h4>
+                {{ range first 3 (where site.RegularPages "Type" "blog") }}
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-64x64">
+                            {{ if .Params.thumb }}
+                            <picture>
+                                {{ $webpPath := printf "%s" "static/" .Params.thumb ".webp" }}
+                                {{ if (fileExists $webpPath ) -}}
+                                <source srcset="{{ .Site.BaseURL}}thumbs/{{ .Params.banner }}.webp" type="image/webp">
+                                {{- end }}
+                                <source srcset="{{ .Site.BaseURL}}thumbs/{{ .Params.banner }}" type="image/jpeg">
+                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="{{ .Site.BaseURL}}thumbs/{{ .Params.banner }}" alt="{{ .Title }}">
+                            </picture>
+                            {{ else }}
+                            {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
+                            {{ if (fileExists $svgPlaceholder) -}}
+                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="{{ .Site.BaseURL}}img/placeholder.svg" alt="{{ .Title }}">
+                            {{- else }}
+                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="{{ .Site.BaseURL}}img/placeholder.png" alt="{{ .Title }}">
+                            {{ end }}
+                            {{ end }}
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <h6 class="title is-6"><a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title
+                                }}</a></h6>
+                    </div>
+                </div>
+                {{ end }}
+                {{ end }}
+                {{ end }}
+            </div>
+            {{ if isset .Site.Params "address" }}
+            <div class="column is-4">
+                <h4 class="title is-4 is-uppercase">{{ i18n "contactTitle" }}</h4>
+
+                {{ .Site.Params.address.html | markdownify }}
+                <hr>
+                <a href="/contact" class="button is-primary" rel="noopener noreferrer nofollow">{{ i18n "contactGoTo"
+                    }}</a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    <!-- *** COPYRIGHT *** -->
+    <section class="copyright has-text-centered">
+        <div class="container">
+            {{ if isset .Site.Params "copyright" }}
+            {{ .Site.Params.copyright | safeHTML }} {{ dateFormat "2006" now }}
+            {{ end }}
+        </div>
+    </section>
+    <!-- /#copyright -->
+    <!-- *** COPYRIGHT END *** -->
+</footer>

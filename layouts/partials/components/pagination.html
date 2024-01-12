@@ -1,0 +1,39 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 -}}
+<nav class="pagination" role="navigation" aria-label="pagination">
+  {{ with $pag.First -}}
+    <a href="{{ .URL }}" class="pagination-previous" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  {{ end -}}
+    <a {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL }}" class="pagination-previous" {{ else }} href="#" class="pagination-previous" disabled {{ end }} aria-label="Previous"><span aria-hidden="true" {{ if not $pag.HasPrev }} disabled{{ end }}>&laquo;</span></a>
+    <ul class="pagination-list">
+  {{- $ellipsed := false -}}
+  {{- $shouldEllipse := false -}}
+  {{- range $pag.Pagers -}}
+  {{- $right := sub .TotalPages .PageNumber -}}
+  {{- $showNumber := or (le .PageNumber 3) (eq $right 0) -}}
+  {{- $showNumber := or $showNumber (le .TotalPages 5) -}}{{/* Issue #7523 */}}
+  {{- $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) -}}
+  {{- if $showNumber -}}
+    {{- $ellipsed = false -}}
+    {{- $shouldEllipse = false -}}
+  {{- else -}}
+    {{- $shouldEllipse = not $ellipsed -}}
+    {{- $ellipsed = true -}}
+  {{- end -}}
+  {{- if $showNumber }}
+  <li>
+    <a class="pagination-link {{ if eq . $pag }}is-current{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+  </li>
+  {{- else if $shouldEllipse }}
+  <li>
+    <span class="pagination-link" disabled aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  {{- end -}}
+  {{- end }}
+  </ul>
+    <a {{ if $pag.HasNext }}href="{{ $pag.Next.URL }}"{{ end }} class="pagination-next" aria-label="Next" {{ if not $pag.HasNext }} disabled{{ end }}><span aria-hidden="true">&raquo;</span></a>
+  {{- with $pag.Last }}
+    <a href="{{ .URL }}" class="pagination-next" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  {{- end }}
+</nav>
+{{ end }}

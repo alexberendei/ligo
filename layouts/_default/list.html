@@ -1,0 +1,67 @@
+{{ define "title" }}
+    {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+        <!-- *** MAIN COLUMN *** -->
+        <div class="column is-9">
+            {{ partial "components/breadcrumb.html" . }}
+            {{ range (.Paginator 6).Pages }}
+            <article class="media">
+                <figure class="media-left">
+                    <a class="image is-128x128" href="{{ .Permalink }}" rel="noopener noreferrer nofollow">
+                        {{ if .Params.thumb }}
+                        <picture>
+                            {{ $webpPath := printf "%s%s%s" "static/" .Params.thumb ".webp" }} 
+                            {{ if (fileExists  $webpPath ) -}}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.thumb }}.webp" type="image/webp">
+                            {{- end }}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.thumb }}" type="image/jpeg">
+                            <img loading="lazy" src="{{ .Site.BaseURL}}{{ .Params.thumb }}" alt="{{ .Title }}">
+                        </picture>
+                        {{ else }}
+                            {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
+                            {{ if (fileExists $svgPlaceholder) -}}
+                                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="  data-src="{{ .Site.BaseURL}}img/placeholder.svg" alt="{{ .Title }}">
+                            {{- else }}
+                                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="  data-src="{{ .Site.BaseURL}}img/placeholder.png" alt="{{ .Title }}">
+                            {{ end }}
+                        {{ end }}
+                    </a>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <h4 class="title is-4"><a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title }}</a></h3>
+                        <p class="subtitle">
+                            {{ if isset .Params "author" }}
+                            {{ i18n "authorBy" }} <a href="#" rel="noopener noreferrer nofollow">{{ .Params.author }}</a>
+                            {{ end }}
+                            {{ if isset .Params "categories" }}
+                            {{ if gt (len .Params.categories) 0 }}
+                            in <a href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}" rel="noopener noreferrer nofollow">{{ index .Params.categories 0 }}</a>
+                            {{ end }}
+                            {{ end }}
+                        </p>
+                        <p class="intro">{{ .Summary | safeHTML | truncate 120 }}</p>
+
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+            {{ partial "components/pagination.html" . }}
+        </div>
+        <!-- *** LEFT COLUMN END *** -->
+        <!-- *** RIGHT COLUMN *** -->
+        <div class="column is-3">
+            <!-- *** MENUS AND WIDGETS *** -->
+            {{ partial "blocks/sidebar.html" . }}
+            <!-- *** MENUS AND FILTERS END *** -->
+        </div>
+        <!-- *** RIGHT COLUMN END *** -->
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,26 @@
+<!doctype html>
+{{- $language_code := site.LanguageCode | default "en-us" -}}
+<html prefix="og: http://ogp.me/ns#" lang="{{ $language_code }}" {{ if in site.Data.i18n.rtl.rtl $language_code
+  }}dir="rtl" {{ end }}>
+{{ partial "head.html" . }}
+
+<body>
+  {{ if hugo.IsProduction }}
+  {{ if $.Site.Params.marketing.google_tag_manager }}
+  {{ partial "widgets/marketing/google_GTM-body.html" . }}
+  {{ end }}
+  {{ end }}
+  {{ partial "sections/header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ block "page_bottom" . }}{{ end }}
+  {{ block "footer" . }}
+  {{ partial "sections/footer.html" . }}
+  {{ end }}
+  {{ if $.Site.Params.fixedphone }}
+  <!-- optional scroll block for mobile -->
+  {{ partial "blocks/fixedphone.html" . }}
+  {{ end }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

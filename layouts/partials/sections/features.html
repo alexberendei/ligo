@@ -1,0 +1,29 @@
+{{ if isset site.Params "features" }}
+{{ if site.Params.features.enable }}
+{{ if gt (len site.Data.features) 0 }}
+<section class="section features">
+    <div class="container">
+        {{ $translatedData := index site.Data.features site.Language.Lang }}
+        {{ range $index, $element := sort $translatedData "weight" }}
+        {{ if eq (mod $index 3) 0 }}
+        <div class="columns">
+            {{ end }}
+            <div class="column is-4 has-text-centered">
+                <div class="card">
+                    <div class="card-content">
+                        <i class="{{ .icon }}"></i>
+                        <hr>
+                        <h4 class="title is-4">{{ $element.title }}</h4>
+                        <span class="subtitle is-6">{{ $element.description | markdownify }}</span>
+                    </div>
+                </div>
+            </div>
+            {{ if or (eq (mod $index 3) 2) (eq $index (sub (len $translatedData ) 1 )) }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}

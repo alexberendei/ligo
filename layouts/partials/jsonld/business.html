@@ -1,0 +1,42 @@
+{{ $logo_url := site.Params.logo.url -}}
+{{ $banner_url := site.Params.banner }}
+
+{{ $logo := printf "%s%s" site.BaseURL $logo_url }}
+{{ $banner := printf "%s%s" site.BaseURL $banner_url }}
+
+<script defer type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{site.Params.local_business_type | default site.Params.site_type}},
+  "@id": {{site.BaseURL}},
+  "name": {{site.Params.org_name | default site.Title}},
+  "logo": {{ $logo }},
+  {{ with site.Params.phone }}"telephone": {{.}},{{end}}
+  {{- if .Site.Params.default_description }}
+  "description": "{{ .Site.Params.default_description | plainify | safeHTML }}",
+  {{- end }}
+  {{- if $banner_url }}
+  "image": [
+    {{ $banner }}
+  ], 
+  {{ end }}
+  {{- if (eq site.Params.site_type "LocalBusiness") | and site.Params.coordinates }}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{site.Params.coordinates.latitude}},
+    "longitude": {{site.Params.coordinates.longitude}}
+  },
+  {{end}}
+  {{- with site.Params.address -}}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ .streetAddress | default "" }},
+    "addressLocality": {{ .addressLocality | default "" }},
+    "addressRegion": {{ .addressRegion | default "" }},
+    "postalCode": {{ .postalCode | default "" }},
+    "addressCountry": {{ .country_code | default .addressCountry | default "" }}
+  },
+  {{ end -}}
+  "url": {{site.BaseURL}}
+}
+</script>

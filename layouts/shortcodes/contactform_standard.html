@@ -1,0 +1,25 @@
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) {window.location='multumim';}"></iframe>
+
+<form action="{{ $.Site.Params.Contactform_standard.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="is-primary">
+    <header><h2 class="is-2 panel-heading">{{ i18n `contactForm` }}</h2></header>
+    
+    <label class="label">{{ i18n `contactName` }}</label>
+    <input class="input" type="text" placeholder="{{ i18n `contactName` }}" name="{{ $.Site.Params.Contactform_standard.name }}">
+
+    <label class="label">{{ i18n `contactMail` }}*</label>
+    <input class="input" type="email" placeholder="{{ i18n `contactMail` }}*" name="{{ $.Site.Params.Contactform_standard.email }}" required>
+
+    <label class="label">{{ i18n `contactPhone` }}</label>
+    <input class="input" type="text" placeholder="{{ i18n `contactPhone` }}" name="{{ $.Site.Params.Contactform_standard.phone }}">
+  
+    <label class="label">{{ i18n `contactSubject` }}</label>
+    <input class="input" type="text" placeholder="{{ i18n `contactSubject` }}" name="{{ $.Site.Params.Contactform_standard.subject }}">
+  
+    <label class="label">{{ i18n `contactMessage` }}*</label>
+    <textarea class="textarea" rows="5" placeholder="{{ i18n `contactMessage` }}*" name="{{ $.Site.Params.Contactform_standard.message }}" required></textarea>
+    
+    <p class="field is-grouped is-grouped-centered">
+        <button class="button is-primary" type="submit">{{ i18n `contactSend` }}</button>
+    </p>
+</form>

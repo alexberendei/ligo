@@ -1,0 +1,25 @@
+{{ if site.Params.page_show_related }}
+
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+<h2>See Also</h2>
+<ul>
+  {{ range $i, $p := . }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{ with .HeadingsFiltered }}
+    <ul>
+      {{ range . }}
+      {{ $link := printf "%s#%s" $p.RelPermalink .ID | safeURL }}
+      <li>
+        <a href="{{ $link }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+
+{{ end }}

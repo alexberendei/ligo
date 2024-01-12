@@ -1,0 +1,76 @@
+{{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+
+{{ $img_mobilew := default "768x" }}
+{{ $img_mobile_2xw := default "1536x" }}
+{{ $img_mediumw := default "1410x" }}
+{{ $img_medium_2xw := default "2820x" }}
+{{ $img_hdw := default "1920x" }}
+{{ $img_hd_2xw := default "3640x" }}
+
+{{/* Resize the original image to the given sizes */}}
+
+{{ .Scratch.Set "mobile" ($src.Resize $img_mobilew) }}
+{{ .Scratch.Set "mobile_2x" ($src.Resize $img_mobile_2xw) }}
+{{ .Scratch.Set "medium" ($src.Resize $img_mediumw) }}
+{{ .Scratch.Set "medium_2x" ($src.Resize $img_medium_2xw) }}
+{{ .Scratch.Set "img_hd" ($src.Resize $img_hdw) }}
+{{ .Scratch.Set "img_hd_2x" ($src.Resize $img_hd_2xw) }}
+
+{{/* Add processed images to scratch */}}
+
+{{ $img_mobile := .Scratch.Get "mobile" }}
+{{ $img_mobile_2x := .Scratch.Get "mobile_2x" }}
+{{ $img_medium := .Scratch.Get "medium" }}
+{{ $img_medium_2x := .Scratch.Get "medium_2x" }}
+{{ $img_hd := .Scratch.Get "img_hd" }}
+{{ $img_hd_2x := .Scratch.Get "img_hd_2x" }}
+
+<figure  class="image {{ with .Get "class" }}{{ . }}{{ end }}">
+    {{- if .Get "link" -}}
+        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- end }}
+        <picture>
+        <!-- Large screens -->
+        <source
+            media="(min-width: 1407 px)"
+            data-srcset="{{ if ge $src.Width "1920" }}{{ $img_hd.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 1x,
+            {{ if ge $src.Width "3640" }}{{ $img_hd_2x.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 2x">
+        <!-- Medium screens / Laptops -->
+        <source
+            media="(min-width: 769px) and (max-width: 1407)"
+            data-srcset="{{ if ge $src.Width "1410" }}{{ $img_medium.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 1x,
+            {{ if ge $src.Width "2820" }}{{ $img_medium_2x.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 2x">
+        <!-- Small screens -->
+        <source
+            media="(max-width: 768px)"
+            data-srcset="{{ if ge $src.Width "768" }}{{ $img_mobile.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 1x,
+            {{ if ge $src.Width "1536" }}{{ $img_mobile_2x.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 2x">
+        <!-- Fallback -->
+        <img loading="lazy"
+            data-src="{{ if ge $src.Width "1920" }}{{ $img_hd.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}}"
+            data-srcset="{{ if ge $src.Width "1920" }}{{ $img_hd.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 1x,
+            {{ if ge $src.Width "3640" }}{{ $img_hd_2x.RelPermalink }}{{else}}{{ $src.RelPermalink }}{{end}} 2x"
+            
+            {{- if or (.Get "alt") (.Get "caption") }}  
+                alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify | plainify }}{{ end }}"
+            {{- end -}}
+            class="lazy {{ if .Get "is-rounded"}}is-rounded{{ end }}" 
+            /> <!-- Closing img tag -->
+        </picture>
+    {{- if .Get "link" }}</a>{{ end -}}
+    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+        <figcaption>
+            {{ with (.Get "title") -}}
+                <h4>{{ . }}</h4>
+            {{- end -}}
+            {{- if or (.Get "caption") (.Get "attr") -}}<p>
+                {{- .Get "caption" | markdownify -}}
+                {{- with .Get "attrlink" }}
+                    <a href="{{ . }}" rel="noopener noreferrer nofollow">
+                {{- end -}}
+                {{- .Get "attr" | markdownify -}}
+                {{- if .Get "attrlink" }}</a>{{ end }}</p>
+            {{- end }}
+        </figcaption>
+    {{- end }}
+</figure>

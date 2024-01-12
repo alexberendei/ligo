@@ -1,0 +1,63 @@
+{{ if isset site.Params "recent_posts" }}
+{{ if site.Params.recent_posts.enable }}
+{{ if gt (where site.RegularPages "Type" "blog") 0 }}
+
+<section class="section section-recent-posts has-text-centered is-medium">
+    
+    <div class="block">
+            <h2 class="title is-2">{{ site.Params.recent_posts.title }}</h2>
+            <p class="subtitle">{{ site.Params.recent_posts.subtitle | markdownify }}</p>
+    </div>
+
+    <div class="container">
+            <!-- *** RECENT POSTS BLOG *** -->
+            <div class="columns">
+                {{ $items :=  4 }}
+                {{ range first $items (where site.RegularPages "Type" "blog") }}
+                <div class="column {{ if eq $items 2  }} is-6 {{ end }} {{ if eq $items 3  }} is-4 {{ end }} {{ if eq $items 4  }} is-3 {{ end }}">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">
+                                {{ if .Params.thumb }}
+                                <picture>
+                                    {{ $webpPath := printf "%s%s%s" "static/" .Params.thumb ".webp" }}
+                                    {{ if (fileExists  $webpPath ) -}}
+                                        <source srcset="{{ site.BaseURL}}{{ .Params.thumb }}.webp" type="image/webp">
+                                    {{- end }}
+                                    <source srcset="{{ site.BaseURL}}{{ .Params.thumb }}" type="image/jpeg">
+                                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="  data-src="{{ site.BaseURL}}{{ .Params.thumb }}"  alt="{{ .Title }}">
+                                </picture>
+                                {{ else }}
+                                    {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
+                                    {{ if (fileExists $svgPlaceholder) -}}
+                                        <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="  data-src="{{ site.BaseURL}}img/placeholder.svg" alt="{{ .Title }}">
+                                    {{- else }}
+                                        <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="  data-src="{{ site.BaseURL}}img/placeholder.png" alt="{{ .Title }}">
+                                    {{ end }}
+                                {{ end }}
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="title is-4"><a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title }}</a></h4>
+                            <p class="subtitle is-6">
+                            {{ with .Params.author }}
+                            {{ i18n "authorBy" }} <a href="#" rel="noopener noreferrer nofollow">{{ . }}</a> |
+                            {{ end }}
+                            <time datetime="{{ .Date.Format site.Params.date_format_small }}">{{ i18n "publishedOn" }} {{ .Date.Format site.Params.date_format }}</time>
+                            </p>
+                            <div class="content">{{ .Summary | safeHTML | truncate 240 }}</div>
+                            <a class="button" href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ i18n "continueReading" }}</a>
+                        </div>
+                    </div><!-- /.card -->
+                </div>
+                {{ end }}
+            </div><!-- /.columns -->
+            <!-- *** BLOG HOMEPAGE END *** -->
+    </div><!-- /.container -->
+</section>
+<!-- /.section -->
+{{ end }}
+{{ end }}
+{{ end }}

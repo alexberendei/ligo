@@ -1,0 +1,73 @@
+# Languages
+
+# # Configure the English version of the site.
+[en]
+  languageCode = "en"
+  languageName = "English"
+  contentDir = "content"  # Uncomment for multi-lingual
+  weight = 1
+
+[[en.menus.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+[[en.menus.main]]
+  name = "About"
+  url = "/about/"
+  weight = 20
+[[en.menus.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 30
+[[en.menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 40
+
+
+
+# Uncomment the lines below to configure a second language.
+[ro]
+  languageCode = "ro"
+  languageName = "Romanian"
+  contentDir = "content/ro"
+  weight = 2
+
+[[ro.menus.main]]
+  name = "Acasa"
+  url = "/"
+  weight = 10
+[[ro.menus.main]]
+  name = "Despre noi"
+  url = "/about/"
+  weight = 20
+[[ro.menus.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 30
+[[ro.menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 40
+
+
+[[ro.menus.social]]
+    weight = 1
+    name = "GitHub"
+    url = "https://github.com/"
+    pre = "<i class='fa fa-github'></i>"
+[[ro.menus.social]]
+    weight = 2
+    name = "Facebook"
+    url = "http://facebook.com"
+    pre = "<i class='fa fa-facebook'></i>"
+[[ro.menus.social]]
+    weight = 3
+    name = "Twitter"
+    url = "http://twitter.com"
+    pre = "<i class='fa fa-twitter'></i>"
+[[ro.menus.social]]
+    weight = 4
+    name = "Email"
+    url = "mailto:your@email.com"
+    pre = "<i class='fa fa-envelope'></i>"

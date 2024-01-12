@@ -1,0 +1,297 @@
+# SITE SETUP
+
+############################
+## Basic Info
+############################
+
+# Website type
+#   Improve how search engines understand your site.
+#   For personal sites, choose "Person".
+#   For organizations and projects, choose from https://schema.org/Organization#subtypes
+#   E.g. Person, Organization, LocalBusiness, Project, EducationalOrganization
+site_type = "LocalBusiness"
+
+# Local business type (optional)
+# If you entered "LocalBusiness" above, choose the type of business from https://schema.org/LocalBusiness#subtypes
+local_business_type = ""
+
+# Organization name (optional)
+# Enter an organization or project name. Defaults to the site title from `config.toml`.
+org_name = ""
+
+# Description for SEO & social sharing
+default_description = "default description"
+default_keywords = ["1","2","3"]
+
+author = "alexberendei.com"
+
+############################
+## Site Features
+############################
+
+#Cookie policy
+#COOKIE BOT 00000000-0000-0000-0000-000000000000
+cookieBot = ""
+#COOKIE OSANO https://cmp.osano.com/{{-text-}}/osano.js
+cookieOsano = ""
+
+############################
+## Contact details
+##
+## These details power the Contact widget (if enabled).
+## Additionally, for organizations, these details may be used to enrich search engine results.
+############################
+
+# Enter contact details (optional). To hide a field, clear it to "".
+email = "test@example.org"
+phone = "888 888 88 11"
+phone2 = "222 222 22 22"
+# show one block sticked on scroll with the phone numbers
+fixedphone = true
+
+# Address
+# For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
+address = {streetAddress = "Street", addressLocality = "City", addressRegion = "B", postalCode = "77777", addressCountry = "Romania", country_code = "RO" }
+# Geographic coordinates
+# To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
+coordinates = {latitude = "40.000000", longitude = "20.000000"}
+# Directions for visitors to locate you.
+directions = "Right after the Metro Station on the left"
+# Office hours
+# A list of your office hours. To remove, set to an empty list `[]`.
+office_hours = ["Monday 08:00 to 16:00", "Sunday 08:00 to 12:00"]
+
+
+# Contact links
+#   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
+contact_links = [
+  {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/Twitter"},
+  {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:echo123?call"},
+  {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
+  {icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io"},
+  {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
+  ]
+
+############################
+## Social
+############################
+
+# Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
+banner = "banner.jpg"
+image = "imagehero.jpg" # base image
+images = ["imagehero.jpg"] # array of images
+
+# Twitter username (without @). Used when a visitor shares your site on Twitter.
+twitter = ""
+fb_app_id = "" # 0123456789
+fb_admins = ""
+
+############################
+## Regional Settings
+############################
+
+# Format date / time with Go's time formatting
+#   Example: "Mon, 2 Jan, 2006"
+date_format = "Jan 2, 2006"
+date_format_small = "2006-01-02"
+#   Example: "3:04 pm" or "15:04"
+time_format = "3:04 PM"
+
+# Address format (en-us, en-gb, de, fr-fr, ro).
+address_format = "ro"
+
+############################
+## Advanced
+############################
+
+# Enter a copyright notice to display in the site footer.
+# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
+copyright = "&copy; Copyright"
+
+############################
+## Search
+############################
+
+# Enable Search in site type "true" for activation
+search = true
+
+page_show_related = true
+
+# Logo path.
+# An logo path
+[logo]
+  url = "img/logo.png"
+  maxheight = 80
+  small_url = "img/logo-small.png"
+  small_maxheight = 40
+
+  shortname = ""  # Paste the shortname from your Disqus dashboard.
+  show_count = true  # Show comment count in page header? (true/false)
+
+############################
+## Maps
+############################
+[map]
+  # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
+  # and choose a map provider below.
+  #
+  # To use Google Maps, set `engine` to 1 and enter your API key that can be obtained here:
+  #   https://developers.google.com/maps/documentation/javascript/get-api-key
+  # To use OpenStreetMap tiles, set `engine` to 2.
+  # To use OpenStreetMap on a high traffic site, set `engine` to 3 and enter your API key that can be obtained here:
+  #   https://www.mapbox.com/studio/account/tokens
+  #
+  # Map provider:
+  #   0: No map
+  #   1: Google Maps
+  #   2: OpenStreetMap (Mapnik)
+  #   3: OpenStreetMap (Mapbox)
+  engine = 0
+  api_key = ""
+  zoom = 15
+
+
+
+############################
+## SEO
+############################
+[seo]
+[seo.webmaster_verifications]
+  google = "" # Optional, Google verification code
+  bing = "" # Optional, Bing verification code
+  alexa = "" # Optional, Alexa verification code
+  yandex = "" # Optional, Yandex verification code
+
+
+############################
+## Components
+############################
+
+
+
+############################
+## Widgets
+############################
+[widgets]
+
+## GDPR
+# cookies
+
+## Marketing
+[marketing]
+  google_analytics = ""
+  google_tag_manager = ""
+
+## Contact
+[contactform_standard]
+  # for shortcode just put {{< contactform_standard >}} inside markdown content
+  action = ""
+  name = ""
+  email = ""
+  phone = ""
+  subject = ""
+  message = ""
+
+## SOCIAL
+# Enable instagram feeds widget
+instafeed = false
+# Enable in-built social sharing buttons? (true/false)
+sharebuttons = true
+# Enable comments
+
+## Content Management System
+[cms]
+  netlify_cms = false
+  forestry_cms = false
+
+
+############################
+## Comments
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
+
+#TAXONOMY WIDGET LIST OF TERMS
+# Enable taxonomy list of terms
+categories = true
+tags = true
+product_categories = true
+
+############################
+## Sections
+############################
+[header_top]
+enable = true
+text = "Address - Street City Country"
+email = "contact@example.org"
+# to display it, one should be true (social or language)
+social = true
+# display languages as dropdown
+language = true
+
+[navbar]
+#  navbar fixed
+style = "fixed" 
+# position: in 'hero' or 'over' 
+position = "hero"
+# max 2 languages to display
+language = true 
+
+[carousel]
+enable = true
+# hero / normal 
+front = "normal"
+# carousel files: '/data/carousel'.
+
+[about]
+enable = true
+title = "About us"
+description = "long <strong>description</strong>."
+checklist = """<ul class="checklist title is-3 has-text-success">
+        <li>check 1</li>
+        <li>check 2</li>
+        <li>check 3</li>
+    </ul>"""
+
+[features]
+enable = true
+# features files: '/data/features'.
+
+[testimonials]
+enable = true
+# Use 'DATA' to store testimonials on /data or 'PAGE' structure that create separate pages for every testimonial
+type = "data"
+# testimonials files: '/data/testimonials' or 'content/testimonials'.
+title = "Testimonials"
+subtitle = "Our clients testimonials."
+
+[clients]
+enable = true
+# Use 'DATA' to store clients on /data or 'PAGE' structure that create separate pages for every client
+type = "data"
+# clients files: '/data/clients' or 'content/clients'.
+title = "Our Clients"
+subtitle = "Our clients description"
+
+[CTA]
+enable = true
+icon = "fa fa-phone fa-3x"
+title = "Do you want to see more?"
+subtitle = "We have all solutions for your needs."
+link_url = "#"
+link_text = "Contact Us"
+
+[CTA_inverted]
+enable = true
+icon = "fa fa-phone fa-3x"
+title = "Do you want to see more?"
+subtitle = "We have all solutions for your needs."
+link_url = "#"
+link_text = "Contact Us"
+
+[recent_posts]
+enable = true
+title = "Recent posts"
+subtitle = "Our blog articles."
+
+[footer]
+footer_about_us = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellendus exercitationem adipisci quasi laborum error eligendi."

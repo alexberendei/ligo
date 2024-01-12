@@ -1,0 +1,21 @@
+{{ if isset .Site.Params "carousel" }}
+{{ if .Site.Params.carousel.enable }}
+{{ if gt (len .Site.Data.carousel) 0 }}
+
+<div id="main-carousel" class="hero-carousel">
+    {{ $translatedData := index site.Data.carousel site.Language.Lang }}
+    {{ range $index, $element := sort $translatedData "weight" }}
+    <figure>
+        <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            data-src="{{ .Site.BaseURL }}/{{ $element.image }} " alt="">
+        <figcaption class="carousel-title has-text-centered">
+            <h1 class="title is-1">{{ $element.title }}</h1>
+            {{ $element.description | safeHTML }}
+        </figcaption>
+    </figure>
+    {{ end }}
+</div><!-- end carousel-container-->
+
+{{ end }}
+{{ end }}
+{{ end }}

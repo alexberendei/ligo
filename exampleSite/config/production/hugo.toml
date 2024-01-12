@@ -1,0 +1,75 @@
+# generate hugo_stats.json in production https://gohugo.io/getting-started/configuration/
+[build]
+  writeStats = true
+
+############################
+## Performance
+############################
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      decimals = -1
+      keepCSS2 = true
+    [minify.tdewolff.html]
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+    [minify.tdewolff.json]
+    [minify.tdewolff.svg]
+      decimals = -1
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
+  [caches.modules]
+    dir = ":cacheDir/modules"
+    maxAge = -1
+
+# Privacy
+############################
+
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = false
+    disable = false
+    respectDoNotTrack = false
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = false
+    simple = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = false

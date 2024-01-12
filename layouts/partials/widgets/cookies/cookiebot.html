@@ -1,0 +1,5 @@
+{{ if  hugo.IsProduction }}
+{{ if $.Site.Params.cookieBot }}
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="{{ $.Site.Params.cookieBot }}" type="text/javascript" async></script>
+{{ end }}
+{{ end }}

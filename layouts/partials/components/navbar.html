@@ -1,0 +1,31 @@
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ .Site.BaseURL }}">
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL }}{{ .Site.Params.logo.url }}" alt="{{ .Title }} logo" class="logo is-hidden-touch">
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL }}{{ .Site.Params.logo.small_url }}" alt="{{ .Title }} logo" class="logo is-hidden-desktop">
+                <span class="is-sr-only">{{ .Title }} - {{ i18n "navHome" }}</span>
+            </a>
+
+            <a href="#" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span class="is-sr-only">{{ i18n "navToggle" }}</span>
+            </a> 
+        </div>
+
+        <div id="navbarMain" class="navbar-menu is-size-5">
+            <div class="navbar-end">
+                {{ range site.Menus.main }}
+                    <a href="{{ .URL | relLangURL }}" class="navbar-item has-text-primary">{{ .Name }}</a>
+                {{ end }}
+
+                <div class="tile is-parent is-vertical">
+                    <p class="tile is-vertical"><a class="button is-rounded is-success is-fullwidth" href="tel:{{ .Site.Params.phone }}" rel="noopener noreferrer nofollow"><i class="fa fa-phone is-large"></i><strong>{{ .Site.Params.phone }}</strong></a></p>
+                    <p class="tile is-vertical"><a class="button is-rounded is-danger is-fullwidth" href="tel:{{ .Site.Params.phone2 }}" rel="noopener noreferrer nofollow"><i class="fa fa-phone"></i> <strong>{{ .Site.Params.phone2 }}</strong></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

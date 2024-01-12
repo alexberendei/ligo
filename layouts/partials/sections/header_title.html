@@ -1,0 +1,18 @@
+<div class="has-background-info header-title" 
+{{ if .Params.banner }}
+    {{ $webpPath := printf "%s%s%s" "static/" .Params.banner ".webp" }}
+    {{ if (fileExists  $webpPath ) }}
+        style="background:url({{ .Site.BaseURL }}{{ .Params.banner | safeCSS }}.webp); background-size:cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;" 
+        {{ else }}
+        style="background:url({{ .Site.BaseURL }}{{ .Params.banner | safeCSS }}); background-size:cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;" 
+    {{ end }}
+{{ end }}
+ >
+        {{ if .Params.banner }}
+        <div class="header-title-bg" ></div>
+        {{ end }}
+    <div class="container has-background-black-50-alpha p-4">
+        <h1 class="title is-1 has-text-primary">{{ .Title }}</h1>
+        <p class="subtitle">{{ .Params.subtitle }}</p>
+    </div>
+</div>

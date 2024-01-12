@@ -1,0 +1,17 @@
+name = 'LIGO - Clean Hugo Theme based on Bulma'
+version = "0.1.0"
+license = 'MIT'
+licenselink = 'https://github.com/alexberendei/ligo/LICENSE'
+description = 'Bulma based Hugo theme'
+
+homepage = 'https://github.com/alexberendei/ligo'
+
+demosite = 'https://alexberendei.github.io/ligo'
+
+# Taxonomy terms
+tags = ['blog', 'brochure website']
+features = ['bulma', 'hugo', 'awesome', 'features']
+
+[author]
+  name = 'Alex Berendei'
+  homepage = 'https://www.alexberendei.com'

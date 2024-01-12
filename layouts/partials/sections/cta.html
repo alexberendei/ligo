@@ -1,0 +1,16 @@
+{{ if isset site.Params "cta" }}
+{{ if site.Params.cta.enable }}
+<section class="section cta has-background-primary has-text-white is-medium is-primary">
+    <div class="container">
+        <div class="columns is-vcentered has-text-centered">
+            <div class="column is-2"><i class="{{ .Site.Params.cta.icon }}"></i></div>
+            <div class="column is-6">
+                <h3 class="title is-3">{{ .Site.Params.CTA.title }}</h3>
+                <p class="subtitle">{{ .Site.Params.CTA.subtitle }}</p>
+            </div>
+            <div class="column is-4"><a class="button is-warning has-text-primary is-large" href="{{ .Site.Params.CTA.link_url }}" rel="noopener noreferrer nofollow">{{ .Site.Params.CTA.link_text }}</a></div>     
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}

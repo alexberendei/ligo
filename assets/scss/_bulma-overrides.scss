@@ -1,0 +1,516 @@
+////////////////////////////////////////////////
+// Ligo HUGO BULMA (custom) ... for more themes use https://jenil.github.io/bulmaswatch/help/
+////////////////////////////////////////////////
+
+/// **************
+/// **********
+/// ATOMS
+/// **********
+/// **************
+
+// GENERAL
+
+.button,
+.control.has-icons-left .icon,
+.control.has-icons-right .icon,
+.input,
+.pagination-ellipsis,
+.pagination-link,
+.pagination-next,
+.pagination-previous,
+.select,
+.select select,
+.textarea {
+    height: 2.534em;
+}
+
+.button {
+    &.is-active,
+    &:active {
+        box-shadow: inset 1px 1px 4px rgba($grey-darker, 0.3);
+    }
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name} {
+            border-color: darken($color, 5);
+
+            &.is-hovered,
+            &:hover {
+                background-color: darken($color, 10);
+            }
+
+            &.is-active,
+            &:active {
+                box-shadow: inset 1px 0 3px rgba($grey-darker, 0.3);
+                background-color: darken($color, 10);
+            }
+        }
+    }
+
+    &.is-loading:after {
+        border-color: transparent transparent $grey-light $grey-light;
+    }
+
+    & i {
+        padding-right: 1em;
+    } // padding on icons
+
+    &.is-multiline {
+        min-height: 2.25em;
+        white-space: unset;
+        height: auto;
+        flex-direction: column;
+    }
+}
+
+.input,
+.textarea {
+    box-shadow: none;
+}
+
+.box,
+.card {
+    box-shadow: 0 0 0 1px $border;
+}
+
+.notification {
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name} {
+            a:not(.button) {
+                color: $color-invert;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.progress,
+.tag {
+    border-radius: $radius;
+}
+
+.logo {
+    max-height: 80px !important;
+    @include desktop {
+        max-height: 100px !important;
+    }
+}
+
+//TYPOGRAPHY
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    font-family: $family-secondary;
+    font-weight: 400;
+    font-display: swap;
+}
+.has-text-white {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4,
+    .content h5,
+    .content h6 {
+        color: $white;
+    }
+    hr {
+        background-color: $white;
+    }
+    a {
+        color: lighten($color: $link, $amount: 70%);
+        &:hover {
+            color: lighten($color: $link, $amount: 95%);
+        }
+    }
+}
+
+.title {
+    font-weight: 400;
+}
+
+.fa {
+    margin-right: 0.2em;
+}
+
+.hidden-text {
+    display: inline-block;
+    height: 1px; /* be sure to set height & width */
+    width: 1px;
+    /* Hide the text. */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// Lists
+
+ul.checklist {
+    list-style: none;
+    padding: 0;
+    li {
+        padding-left: 1.3em;
+        margin-bottom: 0.5em;
+        &:before {
+            font: var(--fa-font-solid);
+            content: "\f00c";
+            display: inline-block;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            margin-left: -1.3em; /* same as padding-left set on li */
+            margin-right: 0.4em;
+            width: 1.3em; /* same as padding-left set on li */
+        }
+    }
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    &.white {
+        background-color: rgba($white, 0.6);
+    }
+    &.black {
+        background-color: rgba($black, 0.6);
+    }
+    &.primary {
+        background-color: rgba($primary, 0.6);
+    }
+    &.link {
+        background-color: rgba($link, 0.6);
+    }
+    &.info {
+        background-color: rgba($info, 0.6);
+    }
+    &.success {
+        background-color: rgba($success, 0.6);
+    }
+    &.warning {
+        background-color: rgba($warning, 0.6);
+    }
+    &.danger {
+        background-color: rgba($danger, 0.6);
+    }
+}
+
+// Tweeks /////////////////
+
+// cards
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &.card-content {
+        flex: auto;
+    }
+}
+// typography
+.hidden-text {
+    display: inline-block;
+    height: 1px; /* be sure to set height & width */
+    width: 1px;
+    /* Hide the text. */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+//layout
+.is-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.is-vcentered {
+    align-items: center;
+}
+
+// add has-img-left/right
+$sides: left, right;
+@each $name, $side in $sides {
+    .has-img-#{$name} {
+        img,
+        figure {
+            float: #{$name};
+        }
+    }
+}
+
+/// ## HELPERS
+//colors
+
+.has-background-white-50-alpha {
+    background-color: rgba($color: $white, $alpha: 0.5);
+}
+
+.has-background-black-50-alpha {
+    background-color: rgba($color: $black, $alpha: 0.5);
+}
+
+// margin / padding helper
+
+$sizeUnit: rem;
+$marginKey: "m";
+$paddingKey: "p";
+$separator: "-";
+$sizes: (
+    ("none", 0),
+    ("xxs", 0.125),
+    ("xs", 0.25),
+    ("sm", 0.5),
+    ("md", 1),
+    ("lg", 2),
+    ("xl", 4),
+    ("xxl", 8)
+);
+$positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
+
+@function sizeValue($key, $value) {
+    @return if($key == "none", 0, $value + $sizeUnit);
+}
+
+@each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+        margin: sizeValue($sizeKey, $sizeValue);
+    }
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+        padding: sizeValue($sizeKey, $sizeValue);
+    }
+    @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+        .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+        }
+        .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+        }
+    }
+}
+// end margin / padding helper
+
+/// **************
+/// **********
+/// MOLECULES
+/// **********
+/// **************
+
+// navigation-main
+.navigation-main {
+    &.is-transparent {
+        background-color: transparent;
+        .navbar-item,
+        .navbar-link {
+            color: $link;
+            &:after {
+                border-color: currentColor;
+            }
+        }
+    }
+    @include desktop {
+        .has-dropdown .navbar-item {
+            color: $text;
+        }
+    }
+    @include touch {
+        .navbar-menu {
+            background-color: inherit;
+        }
+
+        @each $name, $pair in $colors {
+            $color: nth($pair, 1);
+            $color-invert: nth($pair, 2);
+            &.is-#{$name} {
+                .navbar-item,
+                .navbar-link {
+                    color: $color-invert;
+                }
+            }
+        }
+    }
+    .navbar-item,
+    .navbar-link {
+        padding: 0.2rem 1rem;
+        color: $link;
+        &:after {
+            border-color: currentColor;
+        }
+    }
+    @include desktop {
+        .has-dropdown .navbar-item {
+            color: $text;
+        }
+    }
+    .navbar-burger a {
+        margin-right: 1em;
+        color: #000;
+    }
+}
+
+// phoneNav sticky phone
+#phoneNav {
+    background: transparent;
+    z-index: 50;
+    .navbar-start {
+        text-align: center;
+        min-height: 3.25rem;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        -webkit-transition: all 2s; /* Safari prior 6.1 */
+        transition: all 2s;
+        .navbar-item {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+            color: $white;
+        }
+    }
+}
+
+// language dropdown
+
+@include mobile {
+    .i18n-dropdown #dropdown-menu {
+        width: 200px;
+        margin-left: 50%;
+        left: -100px;
+        margin-top: -0.5em;
+        a {
+            padding: 0.5em 0 0.5em 0;
+        }
+    }
+}
+
+/// **************
+/// **********
+// ORGANISMS
+/// **********
+/// **************
+
+// CAROUSEL SECTION
+//
+.carousel {
+    overflow: hidden;
+}
+.slider-container {
+    min-width: 0;
+    min-height: 0;
+    .slider {
+        width: 0;
+        min-width: 100%;
+    }
+}
+// MAIN CAROUSEL
+#main-carousel {
+    .slider-container {
+        min-height: 500px;
+        max-height: 850px;
+    }
+    .slider {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        height: 100% !important;
+        max-height: 100%;
+        z-index: 0;
+        & .slider-container {
+            height: 100% !important;
+        }
+    }
+    .title {
+        position: relative;
+        background: transparent;
+        font-size: 2em;
+        text-transform: uppercase;
+        padding: 0;
+    }
+    figure {
+        &,
+        img {
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center center;
+            object-position: center center;
+            height: 100%;
+            width: 100%;
+        }
+        figcaption {
+            position: absolute;
+            background-color: rgba($primary, 0.7);
+            left: 0;
+            right: 0;
+            bottom: 150px;
+            padding: 1em 0;
+            &,
+            h1 {
+                color: $white;
+            }
+        }
+    }
+}
+// header title
+.header-title {
+    padding: 2em 0;
+}
+
+// FEATURES SECTION
+.section.features .card:hover {
+    background-color: $grey-lighter;
+}
+
+/// **************
+/// **********
+// TEMPLATES
+/// **********
+/// **************
+
+// HERO
+.hero-top {
+    position: relative;
+    z-index: 999;
+}
+
+// SIDEBAR Sticky
+.sidebar-sticky {
+    height: 100vh;
+    min-height: 200px;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+}
+
+// error with horizontal scrolling temp fix (bulma 0.9.4) https://github.com/jgthms/bulma/issues/2242
+.columns {
+    //@extend .mx-0;
+}

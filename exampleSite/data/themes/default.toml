@@ -1,0 +1,9 @@
+# Theme metadata
+name = "Default"
+# main colors
+primary = "#00D1B2"
+link = "#3273DC"
+info = "#209CEE"
+success = "#48C774"
+warning = "#FFDD57"
+danger = "#FF3860"

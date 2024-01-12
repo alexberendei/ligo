@@ -1,0 +1,71 @@
+{{ if isset site.Params "clients" }}
+{{ if site.Params.clients.enable }}
+
+{{ if eq site.Params.clients.type "data" }}
+<section class="section clients has-text-centered is-medium">
+    <div class="container">
+        <div class="block">
+            <h2 class="title is-2">{{ site.Params.clients.title }}</h2>
+            <p class="subtitle is-6">{{ site.Params.clients.subtitle }}</p>
+        </div>
+        <!-- *** CLIENTS CAROUSEL *** -->
+        <div id="client-carousel" class="carousel">
+            {{ $items := 3 }}
+            {{ range $index, $element := index site.Data.clients site.Language.Lang }}
+            <div class="card">
+                <div class="card-image">
+                    {{ if $element.image | safeHTML }}
+                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                        data-src="{{ site.BaseURL }}{{ $element.image | safeHTML }}" alt="{{ $element.title }}">
+                    {{ else }}
+                    <i class="{{ $element.icon }}"></i>
+                    {{ end }}
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <h4 class="subtitle is-4"><a href="{{ .Params.site }}" target="_blank"
+                                rel="noopener noreferrer nofollow">{{ $element.title }}</a></h4>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <!-- *** CLIENTS CAROUSEL END *** -->
+    </div>
+</section>
+{{ else}}
+<section class="section clients has-text-centered is-medium">
+    <div class="container">
+        <div class="block">
+            <h2 class="title is-2">{{ site.Params.clients.title }}</h2>
+            <p class="subtitle is-6">{{ site.Params.clients.subtitle }}</p>
+        </div>
+        <!-- *** CLIENTS CAROUSEL *** -->
+        <div id="client-carousel" class="carousel">
+            {{ $items := 3 }}
+            {{ range first $items (where site.RegularPages "Type" "clients") }}
+            <div class="card">
+                <div class="card-image">
+                    {{ if .Params.image | safeHTML }}
+                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                        data-src="{{ site.BaseURL }}{{ .Params.image | safeHTML }}" alt="{{ .Title }}">
+                    {{ else }}
+                    <i class="{{ .Params.icon }}"></i>
+                    {{ end }}
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <h4 class="subtitle is-4"><a href="{{ .Params.site }}" target="_blank"
+                                rel="noopener noreferrer nofollow">{{ .Title }}</a></h4>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <!-- *** CLIENTS CAROUSEL END *** -->
+    </div>
+</section>
+{{ end }}
+
+{{ end }}
+{{ end }}

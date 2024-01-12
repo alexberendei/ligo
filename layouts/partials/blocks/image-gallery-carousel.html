@@ -1,0 +1,40 @@
+{{ if isset .Params "gallery" }}
+<section class="section has-background-grey-lighter">
+    <div class="container">
+        <div id="gallery-carousel" class="carousel">
+            {{ range $index, $gallery := .Params.gallery }}
+            <a id="gallery-link" class="modal-button" data-target="gallery-modal-{{- $index -}}"> 
+                <figure class="image is-3by4">
+                    <picture>
+                        {{ $webpPath := printf "%s%s%s" "static/thumbs/" . ".webp" }} 
+                        {{ if (fileExists  $webpPath ) -}}
+                        <source srcset="{{ $.Site.BaseURL}}thumbs/{{ . }}.webp" type="image/webp">
+                        {{- end }}
+                        <source srcset="{{ $.Site.BaseURL}}thumbs/{{ . }}" type="image/jpeg">
+                        <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $.Site.BaseURL }}thumbs/{{ . }}" alt="{{ . }}">
+                    </picture>
+                </figure>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+    {{ range $index, $gallery := .Params.gallery }}
+    <div id="gallery-modal-{{- $index -}}" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <p class="image">
+                <picture>
+                    {{ $webpPath := printf "%s%s%s" "static/" . ".webp" }} 
+                    {{ if (fileExists  $webpPath ) -}}
+                    <source srcset="{{ $.Site.BaseURL}}{{ . }}.webp" type="image/webp">
+                    {{- end }}
+                    <source srcset="{{ $.Site.BaseURL}}{{ . }}" type="image/jpeg">
+                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $.Site.BaseURL }}{{ . }}" alt="{{ . }}">
+                </picture>
+            </p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    {{ end }}
+</section>
+{{ end }}

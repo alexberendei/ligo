@@ -1,0 +1,22 @@
+<script defer type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{site.Params.org_name | default site.Title -}},
+  {{ with site.Params.phone }}"telephone": {{.}},{{end}}
+  {{- if .Site.Params.default_description }}
+  "description": "{{ .Site.Params.default_description | plainify | safeHTML }}",
+  {{- end }}
+  {{- with site.Params.address }}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ .streetAddress | default "" }},
+    "addressLocality": {{ .addressLocality | default "" }},
+    "addressRegion": {{ .addressRegion | default "" }},
+    "postalCode": {{ .postalCode | default "" }},
+    "addressCountry": {{ .country_code | default .addressCountry | default "" }}
+  },
+  {{ end -}}
+  "url": {{site.BaseURL}}
+}
+</script>

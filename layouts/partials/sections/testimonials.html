@@ -1,0 +1,109 @@
+{{ if isset site.Params "testimonials" }}
+{{ if site.Params.testimonials.enable }}
+
+{{ if eq site.Params.testimonials.type "data" site.Language.Lang }}
+
+<section class="section testimonials is-medium has-text-centered has-background-white-ter">
+    <div class="container">
+        <div class="block">
+            <h2 class="title is-2">{{ site.Params.testimonials.title }}</h2>
+            <p class="subtitle is-6">{{ site.Params.testimonials.subtitle | markdownify }}</p>
+        </div>
+        <!-- *** TESTIMONIALS CAROUSEL *** -->
+        <div id="testimonial-carousel" class="carousel">
+            {{ $items := 4 }}
+            {{ range $index, $element := index site.Data.testimonials}}
+
+            <div class="card">
+                <div class="card-image">
+                    {{ if $element.image | safeHTML }}
+                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                        data-src="{{ site.BaseURL }}{{ $element.image | safeHTML }}" alt="{{ $element.title }}">
+                    {{ end }}
+                </div>
+                <div class="card-content">
+                    <i class="fa fa-quote-left"></i>
+                    <p>{{ $element.title | safeHTML }}</p>
+                </div>
+                <div class="card-footer">
+                    {{ if $element.testimonial_client_name }}
+                    <div class="card-footer-item">
+                        <p>{{ $element.testimonial_client_name }}</p>
+                    </div>
+                    {{ end }}
+
+                    {{ if $element.testimonial_client_position }}
+                    <div class="card-footer-item">
+                        <p>{{ $element.testimonial_client_position }}</p>
+                    </div>
+                    {{ end }}
+
+                    {{ if $element.testimonial_client_company }}
+                    <div class="card-footer-item">
+                        <p>{{ $element.testimonial_client_company }}</p>
+                    </div>
+                    {{ end }}
+
+                </div>
+            </div><!-- end card -->
+            {{ end }}
+        </div>
+        <!-- *** TESTIMONIALS CAROUSEL END *** -->
+    </div>
+</section>
+
+{{ else }}
+
+<section class="section testimonials is-medium has-text-centered has-background-white-ter">
+    <div class="container">
+        <div class="block">
+            <h2 class="title is-2">{{ site.Params.testimonials.title }}</h2>
+            <p class="subtitle is-6">{{ site.Params.testimonials.subtitle | markdownify }}</p>
+        </div>
+        <!-- *** TESTIMONIALS CAROUSEL *** -->
+        <div id="testimonial-carousel" class="carousel">
+
+            {{ $items := 4 }}
+            {{ range first $items (where site.RegularPages "Type" "testimonials") }}
+
+            <div class="card">
+                <div class="card-image">
+                    {{ if .Params.image | safeHTML }}
+                    <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                        data-src="{{ site.BaseURL }}{{ .Params.image | safeHTML }}" alt="{{ .Params.title }}">
+                    {{ end }}
+                </div>
+                <div class="card-content">
+                    <i class="fa fa-quote-left"></i>
+                    <p>{{ .Title | safeHTML }}</p>
+                </div>
+                <div class="card-footer">
+                    {{ if .Params.testimonial_client_name }}
+                    <div class="card-footer-item">
+                        <p>{{ .Params.testimonial_client_name }}</p>
+                    </div>
+                    {{ end }}
+
+                    {{ if .Params.testimonial_client_position }}
+                    <div class="card-footer-item">
+                        <p>{{ .Params.testimonial_client_position }}</p>
+                    </div>
+                    {{ end }}
+
+                    {{ if .Params.testimonial_client_company }}
+                    <div class="card-footer-item">
+                        <p>{{ .Params.testimonial_client_company }}</p>
+                    </div>
+                    {{ end }}
+
+                </div>
+            </div><!-- end card -->
+            {{ end }}
+        </div>
+        <!-- *** TESTIMONIALS CAROUSEL END *** -->
+    </div>
+</section>
+{{ end }}
+
+{{ end }}
+{{ end }}

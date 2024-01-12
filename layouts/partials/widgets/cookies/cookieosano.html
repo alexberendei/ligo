@@ -1,0 +1,5 @@
+{{ if  hugo.IsProduction }}
+{{ if .Site.Params.cookieOsano }}
+    <script src="https://cmp.osano.com/{{- $.Site.Params.cookieOsano -}}/osano.js"></script>
+{{ end }}
+{{ end }}

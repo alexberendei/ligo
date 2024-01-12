@@ -1,0 +1,49 @@
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) {window.location='../../../../../thankyou';}"></iframe>
+
+<form action="{{ $.Site.Params.Contactform_standard.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="box has-background-grey-lighter" id="inquiry">
+    
+    <div class="field">
+        <h3 class="is-3 panel-heading">{{ i18n `contactFormInquiry` }} {{ .Title }}</h3>
+    </div>
+
+    <div class="field">
+        <label class="label">{{ i18n `contactName` }}</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="{{ i18n `contactName` }}" name="{{ $.Site.Params.Contactform_standard.name }}">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">{{ i18n `contactMail` }}*</label>
+        <div class="control">
+            <input class="input" type="email" placeholder="{{ i18n `contactMail` }}*" name="{{ $.Site.Params.Contactform_standard.email }}" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">{{ i18n `contactPhone` }}</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="{{ i18n `contactPhone` }}" name="{{ $.Site.Params.Contactform_standard.phone }}">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">{{ i18n `contactSubject` }}</label>
+        <div class="control">
+            <input class="input" type="text" value="{{ .Title }}" name="{{ $.Site.Params.Contactform_standard.subject }}">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">{{ i18n `contactMessage` }}*</label>
+        <div class="control">
+            <textarea class="textarea" rows="5" placeholder="{{ i18n `contactMessage` }}*" name="{{ $.Site.Params.Contactform_standard.message }}" required></textarea>
+        </div>
+    </div>
+    
+    <div class="control">
+        <button class="button is-primary is-fullwidth" type="submit">{{ i18n `contactSend` }}</button>
+    </div>
+
+</form>

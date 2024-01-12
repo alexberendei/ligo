@@ -1,0 +1,4 @@
+<div class="columns {{ with .Get "class" }}{{.}}{{ end }}">
+    {{/* if nr of columns is 2 - bulma class="is-3", if nr col is 3 bulma class ="is-one-third" */}}
+    {{.Inner}}
+</div>

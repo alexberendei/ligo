@@ -1,0 +1,148 @@
+# Navigation
+
+- id: home
+  translation: Acasa
+
+- id: close
+  translation: Close
+
+- id: languages
+  translation: Languages
+
+- id: navHome
+  translation: go to homepage
+
+- id: navToggle
+  translation: Toggle Navigation
+
+- id: tableOfContent
+  translation: Table of Content
+
+# General
+
+- id: 404_title
+  translation: Căutați una din acestea?
+
+# Contact form translation
+
+- id: contactFormInquiry
+  translation: "Cerere oferta"
+
+- id: contactGoTo
+  translation: "Mergi pe pagina de contact"
+
+- id: contactAddress
+  translation: "Adresa"
+
+- id: contactTitle
+  translation: "Contact"
+
+- id: contactForm
+  translation: "Formular de contact"
+
+- id: contactName
+  translation: "Nume"
+
+- id: contactMail
+  translation: "Email"
+
+- id: contactPhone
+  translation: "Telefon"
+
+- id: contactSubject
+  translation: "Subiect"
+
+- id: contactMessage
+  translation: "Mesaj"
+
+- id: contactSend
+  translation: "Trimite mesajul"
+
+- id: contactSMSTitle
+  translation: "Trimite-ne un SMS"
+
+- id: contactSMSMessageLabel
+  translation: "SMS"
+
+- id: contactSMSMessage
+  translation: "Ma intereseaza:"
+
+- id: contactSMSHelp
+  translation: "Avem telefonul ocupat ? Ne poti trimite un SMS si va contactam de indata !"
+
+- id: contactSMSSend
+  translation: "Trimite SMS"
+
+# TAXONOMY
+
+- id: categoriesTitle
+  translation: "Categories"
+
+- id: tagsTitle
+  translation: "Tags"
+
+- id: searchTitle
+  translation: "Cauta"
+
+- id: continueReading
+  translation: "Continua sa citesti"
+
+- id: readMore
+  translation: "Citeste mai mult"
+
+- id: authorBy
+  translation: "De"
+
+- id: recentPosts
+  translation: "Recent posts"
+
+- id: aboutUs
+  translation: "About us"
+
+- id: newer
+  translation: "Newer"
+
+- id: older
+  translation: "Older"
+
+- id: publishedOn
+  translation: "pe"
+
+- id: name
+  translation: "Nume"
+
+- id: email
+  translation: "Email"
+
+- id: phone
+  translation: "Telefon"
+
+- id: subject
+  translation: "Subiect"
+
+- id: message
+  translation: "Mesaj"
+
+- id: previousPage
+  translation: "Pagina precedenta"
+
+- id: nextPage
+  translation: "Pagina urmatoare"
+
+# Commerce / Products
+
+- id: seeProduct
+  translation: "Vezi produsul"
+
+- id: noscriptJS
+  other: "Comments cannot be displayed without JavaScript."
+
+- id: readingTime
+  one: "One minute to read"
+  other: "{{.Count}} minutes to read"
+
+- id: rssDescription
+  other: "Recent content on - "
+
+- id: rssDescriptionTags
+  other: "Current content for the tag - "

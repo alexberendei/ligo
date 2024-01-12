@@ -1,0 +1,129 @@
+////////////////////////////////////////////////
+// ABT HUGO BULMA (custom) ... for more themes use https://jenil.github.io/bulmaswatch/help/
+////////////////////////////////////////////////
+
+// COLORS
+// greys
+$grey-darker:  #222;
+$grey-dark:    #333;
+$grey:         #888;
+$grey-light:   #ccc;
+$grey-lighter: #e9e9e9;
+$white-ter: hsl(0, 0%, 94%);
+$white: hsl(0, 0%, 98%);
+
+$light: $white-ter; 
+$dark: $grey-darker; 
+
+// brand colors
+$yellow:       #FFCB00;
+$blue:         #006AFF;
+$red:          #9D0B0F;
+$gold:         #F1BF98;
+$green:        #00A693;
+
+// main colors variants
+$primary-main:      $primary;
+$primary-light:     lighten($primary, 30%);
+$primary-hover:     darken($primary, 20%);
+$primary-active:    darken($primary, 40%);
+$primary-dark:      darken($primary, 60%);
+
+$link-main:      $link;
+$link-light:     lighten($link, 30%);
+$link-hover:     darken($link, 20%);
+$link-active:    darken($link, 40%);
+$link-dark:      darken($link, 60%);
+
+$info-main:      $info;
+$info-light:     lighten($info, 30%);
+$info-hover:     darken($info, 20%);
+$info-active:    darken($info, 40%);
+$info-dark:      darken($info, 60%);
+
+$success-main:      $success;
+$success-light:     lighten($success, 30%);
+$success-hover:     darken($success, 20%);
+$success-active:    darken($success, 40%);
+$success-dark:      darken($success, 60%);
+
+$warning-main:      $warning;
+$warning-light:     lighten($warning, 30%);
+$warning-hover:     darken($warning, 20%);
+$warning-active:    darken($warning, 40%);
+$warning-dark:      darken($warning, 60%);
+
+$danger-main:      $danger;
+$danger-light:     lighten($danger, 30%);
+$danger-hover:     darken($danger, 20%);
+$danger-active:    darken($danger, 40%);
+$danger-dark:      darken($danger, 60%);
+
+// Gradients 
+// LINEAR
+$gradient-linear-primary: linear-gradient(90deg, rgba($primary,1) 0%, rgba($primary-dark,1) 100%);
+$gradient-linear-secondary: linear-gradient(90deg, rgba($primary,1) 0%, rgba($primary-light,1) 100%);
+
+// RADIAL
+$gradient-radial-primary: radial-gradient(circle, rgba($primary,1) 0%, rgba($primary-dark,1) 100%);
+$gradient-radial-secondary: radial-gradient(circle, rgba($primary,1) 0%, rgba($primary-light,1) 100%);
+
+// text colors
+$text: $grey-dark;
+$text-strong: $grey-dark;
+
+// TYPOGRAPHY
+$family-serif: "Playfair Display", serif;
+$family-sans-serif: "Roboto", Arial, sans-serif;
+$family-code: monospace;
+$family-primary: $family-sans-serif;
+$family-secondary: $family-serif;
+$weight-normal: 400;
+$weight-bold: 700;
+
+// MAIN BODY settings
+$body-background-color: $white;
+$body-min-width: 300px;
+$body-rendering: optimizeLegibility;
+$body-family: $family-primary;
+$body-overflow-x: hidden;
+$body-overflow-y: scroll;
+// body text
+$body-color: $text;
+$body-size: 16px;
+$small-font-size: 0.875em;
+$body-weight: $weight-normal;
+$body-line-height: 1.5;
+// <code>
+$code-family: $family-code;
+$code-padding: 0.25em 0.5em 0.25em;
+$code-weight: normal;
+$code-size: 0.875em;
+// <hr>
+$hr-background-color: $grey-light;
+$hr-height: 2px;
+$hr-margin: 1.5rem 0;
+// <strong>
+$strong-color: $text-strong;
+$strong-weight: $weight-bold;
+// <pre>
+$pre-font-size: 0.875em;
+$pre-padding: 1.25rem 1.5rem;
+$pre-code-font-size: 1em;
+// radius
+$radius: 2;
+$radius-small: 0;
+$radius-large: 0;
+
+$subtitle-color: $grey;
+// buttons
+$button-background-color: $grey-lighter;
+$button-border-color: darken($button-background-color, 5);
+// navbar
+$navbar-background-color: $white;
+$navbar-item-color: $primary;
+$navbar-item-hover-color: $primary-dark;
+$navbar-item-active-color: $primary;
+$navbar-item-hover-background-color: rgba(#000, 0.1);
+$navbar-item-active-background-color: $grey;
+$navbar-dropdown-arrow: $navbar-item-color;

@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <!-- *** MAIN COLUMN *** -->
+            <div class="column">
+                <nav class="level">
+                    <div class="level-left">
+                        {{ partial "components/breadcrumb.html" . }}
+                    </div>
+                    <div class="level-right">
+                        <p class="text-muted text-uppercase mb-small text-right">{{ if .Params.author }}{{ i18n
+                            "authorBy" }} <a href="#" rel="noopener noreferrer nofollow">{{ .Params.author }}</a> | {{
+                            end }}{{ if .Params.date }} {{ .Date.Format .Site.Params.date_format }}{{end}}</p>
+                    </div>
+                </nav>
+                <main class="main">
+                    {{ if .Params.banner }}
+                    <figure class="image">
+                        <picture>
+                            {{ $webpPath := printf "%s%s%s" "static/" .Params.banner ".webp" }}
+                            {{ if (fileExists $webpPath ) -}}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.banner }}.webp" type="image/webp">
+                            {{- end }}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.banner }}" type="image/jpeg">
+                            <img loading="lazy" src="{{ .Site.BaseURL}}{{ .Params.banner }}" alt="{{ .Title }}">
+                        </picture>
+                    </figure>
+                    <hr>
+                    {{ end }}
+                    <div class="content">
+                        {{ .Content }}
+                    </div>
+                </main>
+                <div>{{ partials "widgets/contact.html" . }}</div>
+            </div><!-- *** MAIN COLUMN END *** -->
+        </div>
+    </div>
+</section>
+{{ end }}

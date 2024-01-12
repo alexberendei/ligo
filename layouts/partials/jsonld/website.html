@@ -1,0 +1,24 @@
+<script defer type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  {{- if site.Params.search }}
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {{ printf "%ssearch/?s={search_term_string}" site.BaseURL }},
+    "query-input": "required name=search_term_string"
+  },
+  {{end -}}
+  "url": {{ site.BaseURL }},
+  "name": "{{ .Title }}",
+  {{- if .Site.Params.default_description }}
+  "description": "{{ .Site.Params.default_description }}",
+  {{- end -}}
+  {{- if .Site.Params.author }}
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}"
+  },
+  {{ end }}
+}
+</script>

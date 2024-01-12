@@ -1,0 +1,27 @@
+// SITE FONTS
+// @import "@fontsource/playfair-display";
+// @import "@fontsource/roboto";
+
+@use "@fontsource/roboto/scss/mixins" as Roboto;
+@use "@fontsource/playfair-display/scss/mixins" as Playfair;
+
+@include Roboto.faces(
+  $subsets: latin,
+  $weights: 400,
+  $styles: normal,
+  $directory: "../webfonts"
+);
+@include Playfair.faces(
+  $subsets: latin,
+  $weights: 400,
+  $styles: normal,
+  $directory: "../webfonts"
+);
+
+// // import with hugo modules
+@import "fonts/fontawesome/fontawesome.scss";
+// You can include all the other styles the same as before
+@import "fonts/fontawesome/regular.scss";
+@import "fonts/fontawesome/solid.scss";
+@import "fonts/fontawesome/brands.scss";
+@import "fonts/fontawesome/v4-shims.scss";

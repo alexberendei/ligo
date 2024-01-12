@@ -1,0 +1,18 @@
+{{- partial "functions/parse_theme" . -}}
+// main colors
+$primary: {{ .Scratch.Get "primary" }};
+$link: {{ .Scratch.Get "link" }};
+$info: {{ .Scratch.Get "info" }};
+$success: {{ .Scratch.Get "success" }};
+$warning: {{ .Scratch.Get "warning" }};
+$danger: {{ .Scratch.Get "danger" }};
+// variables
+@import "bulma-variables";
+// //FONTS
+@import "fonts";
+// // main bulma
+@import "bulma";
+// // extensions
+@import "bulma-carousel/src/sass";
+// //overrides
+@import "bulma-overrides";

@@ -1,0 +1,15 @@
+{{ if .Site.Params.widgets.product_categories }}
+{{ if isset .Site.Taxonomies "product_categories" }}
+{{ if not (eq (len .Site.Taxonomies.product_categories) 0) }}
+<div class="panel">
+    <div class="panel-block">
+        <div class="tags are-medium has-text-white">
+            {{ range $name, $items := .Site.Taxonomies.product_categories }}
+                <span class="tag is-link"><a href="{{ $.Site.BaseURL }}product_categories/{{ $name | urlize | lower }}" rel="noopener noreferrer nofollow">{{ $name }} ({{ len $items }})</a></span>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
+{{ end }}
+{{ end }}

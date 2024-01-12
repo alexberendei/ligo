@@ -1,0 +1,29 @@
+<link rel="preload" href="{{ .Site.BaseURL }}webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="{{ .Site.BaseURL }}webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
+
+{{- $postOptions := (dict "config" "config/postcss.config.js") -}}
+{{ $options := dict
+"transpiler" "dartsass"
+"targetPath" "css/style.css"
+"enableSourceMap" (not hugo.IsProduction)
+"includePaths" (slice "node_modules/@fontsource/playfair-display/scss" "node_modules/@fontsource/roboto/scss"
+"node_modules" "node_modules/@fortawesome/fontawesome-free")
+}}
+
+{{/* get other css libraries from /active folder */}}
+{{- $stylescss := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "scss/main_parsed.scss" . |
+resources.ToCSS $options| resources.PostCSS $postOptions -}}
+{{ if fileExists "css/active/*.css" }}
+{{- $librariescss := resources.Get "css/active/bulma-carousel.min.css" | resources.Concat "css/libraries.css" }}
+{{ $style := slice $librariescss $stylescss | resources.Concat "css/style.css" }}
+{{ end }}
+{{ $style := $stylescss }}
+
+{{ if hugo.IsProduction }}
+
+{{ $style = $style | resources.Minify | resources.Fingerprint | resources.PostProcess }}
+
+{{ end }}
+
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ if hugo.IsProduction
+  -}}integrity="{{- $style.Data.Integrity -}}" {{ end }} crossorigin="anonymous" />

@@ -1,0 +1,27 @@
+{{- $page := .page }}
+{{ $summary := .summary }}
+
+{{/* Get schema type. */}}
+{{ $schema := "Product" }}
+{{ if eq $page.Type "service" }}
+  {{ $schema = "Service" }}
+{{ end }}
+
+{{ $logo_url := site.Params.logo.url -}}
+
+{{ $banner_url := $page.Params.banner }}
+{{ $banner := printf "%s%s" site.BaseURL $banner_url }}
+
+<script defer type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{$schema}},
+  {{- if $banner_url }}
+  "image": [
+    {{ $banner }}
+  ], 
+  {{ end -}}
+  "url": "{{ $page.Permalink | absURL }}",
+  "description": {{ $summary }}
+}
+</script>

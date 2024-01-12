@@ -1,0 +1,2 @@
+{{ $href := .Get `href` }}
+<a class="{{ .Get `class` | safeCSS }}" {{ printf "href=%q" $href | safeHTMLAttr }}><i class="{{.Get `icon` | safeCSS }}"></i>{{ .Inner | safeCSS }}</a>

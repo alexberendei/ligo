@@ -1,0 +1,42 @@
+{
+    "name": "LIGO",
+    "version": "0.1.0",
+    "description": "LIGO - Clean Hugo Theme based on Bulma",
+    "main": "index.js",
+    "scripts": {
+        "dev": "hugo server --disableFastRender --gc",
+        "dev:preview": "npm run dev -- --buildDrafts --buildFuture",
+        "build": "hugo --verbose --minify --cleanDestinationDir --gc",
+        "renderToDisk": "hugo server --disableFastRender --gc --renderToDisk --cleanDestinationDir",
+        "renderToDisk:production": "npm run renderToDisk -- --minify --envoronment production",
+        "format:check": "prettier --check .",
+        "installfonts": "cp node_modules/@fortawesome/fontawesome-free/webfonts/*.* node_modules/@fontsource/playfair-display/files/*.* node_modules/@fontsource/roboto/files/*.* static/webfonts && exit 1",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Alexandru Berendei",
+    "license": "MIT",
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^5.0.0",
+        "autoprefixer": "^10.4.14",
+        "postcss": "^8.4.27",
+        "postcss-cli": "^8.3.1",
+        "postcss-import": "^13.0.0",
+        "prettier": "^3.0.1",
+        "prettier-plugin-go-template": "^0.0.15"
+    },
+    "dependencies": {
+        "@fontsource/playfair-display": "^5.0.8",
+        "@fontsource/roboto": "^5.0.8",
+        "@fortawesome/fontawesome-free": "^6.5.1",
+        "bulma": "^0.9.4",
+        "bulma-carousel": "^4.0.24",
+        "vanilla-cookieconsent": "^2.9.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "github:alexberendei/ligo.git"
+    },
+    "bugs": {
+        "url": "https://github.com/alexberendei/ligo/issues"
+    }
+}

@@ -1,0 +1,11 @@
+{{/* Get name of site's Theme. Precedence: Params.toml > Default (Minimal) */}}
+{{- $theme_index := (site.Params.theme | lower | replaceRE "\\s" "_") | default "default" -}}
+
+{{ $theme := index site.Data.themes $theme_index }}
+
+{{- .Scratch.Set "primary" $theme.primary -}}
+{{- .Scratch.Set "link" $theme.link -}}
+{{- .Scratch.Set "info" $theme.info -}}
+{{- .Scratch.Set "success" $theme.success -}}
+{{- .Scratch.Set "warning" $theme.warning -}}
+{{- .Scratch.Set "danger" $theme.danger -}}

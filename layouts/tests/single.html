@@ -1,0 +1,566 @@
+{{ define "title" }}
+    {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <h1 class="title is-1">Styleguide</h1>
+
+        <hr>
+
+        <div class="block">
+           <h1 class="title">Hello World</h1>
+           <h2 class="subtitle">Hello Subtitle</h2>
+           <!-- Sizes -->
+           <h1 class="title is-1">Hello World</h1>
+           <h1 class="title is-2">Hello World</h1>
+           <h1 class="title is-3">Hello World</h1>
+           <h1 class="title is-4">Hello World</h1>
+           <h1 class="title is-5">Hello World</h1>
+           <h1 class="title is-6">Hello World</h1>
+        </div>
+        <!-- CONTENT -->
+        <div class="block">
+            <p class="content is-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, maxime.</p>
+            <p class="content is-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, maxime.</p>
+            <p class="content is-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, maxime.</p>
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="block">
+            <button class="button">Button</button>
+            <button class="button is-white">Button</button>
+            <button class="button is-light">Button</button>
+            <button class="button is-dark">Button</button>
+            <button class="button is-black">Button</button>
+            <button class="button is-link">Button</button>
+        </div>
+
+        <div class="block">
+            <button class="button is-primary">Button</button>
+            <button class="button is-info">Button</button>
+            <button class="button is-success">Success</button>
+            <button class="button is-warning">Warning</button>
+            <button class="button is-danger">Danger</button>
+        </div>
+
+        <div class="block">
+            <button class="button is-primary is-small">Small</button>
+            <button class="button is-primary is-medium">Medium</button>
+            <button class="button is-primary is-large">Large</button>
+        </div>
+
+        <div class="block">
+            <button class="button is-primary is-outlined">Button</button>
+            <button class="button is-info is-outlined">Button</button>
+            <button class="button is-success is-outlined">Success</button>
+            <button class="button is-warning is-outlined">Warning</button>
+            <button class="button is-danger is-outlined">Danger</button>
+        </div>
+
+        <div class="block">
+            <button class="button is-primary is-inverted">Button</button>
+            <button class="button is-info is-inverted">Button</button>
+            <button class="button is-success is-inverted">Success</button>
+            <button class="button is-warning is-inverted">Warning</button>
+            <button class="button is-danger is-inverted">Danger</button>
+        </div>
+
+        <div class="block">
+            <a href="#" class="button is-hovered">Hovered</a>
+            <a href="#" class="button is-focused">Focused</a>
+            <a href="#" class="button is-active">Active</a>
+            <a href="#" class="button is-loading">Loading</a>
+            <a href="#" class="button" disabled>Disabled</a>
+        </div>
+
+        <!-- BOX -->
+
+        <div class="block">
+            <div class="box">
+                <h1 class="title">Hello world</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, qui!</p>
+            </div>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="block">
+            <div class="notification">
+                <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+            <div class="notification is-primary">
+                <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+            <div class="notification is-info">
+                <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+            <div class="notification is-success">
+                <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+            <div class="notification is-warning">
+                <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+            <div class="notification is-danger">
+                 <button class="delete"></button>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quo.
+            </div>
+        </div>
+
+        <!-- TAGS -->
+
+        <div class="block">
+            <span class="tag">Hello</span>
+            <span class="tag is-black">Black</span>
+            <span class="tag is-dark">Dark</span>
+            <span class="tag is-light">Light</span>
+            <span class="tag is-white">White</span>
+            <span class="tag is-primary">Primary</span>
+            <span class="tag is-info">Info</span>
+            <span class="tag is-success">Success</span>
+            <span class="tag is-warning">Warning</span>
+            <span class="tag is-danger is-large">Danger Large <button class="delete"></button></span>
+        </div>
+
+        <!-- MESSGESS -->
+
+        <div class="block">
+            <article class="message">
+                <div class="message-header">
+                    <p>About Us</p>
+                </div>
+                <div class="message-body">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi esse eius sed culpa accusantium hic recusandae eveniet non praesentium veritatis.
+                </div>
+            </article>
+
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>About Us</p>
+                </div>
+                <div class="message-body">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi esse eius sed culpa accusantium hic recusandae eveniet non praesentium veritatis.
+                </div>
+            </article>
+
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>About Us</p>
+                </div>
+                <div class="message-body">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi esse eius sed culpa accusantium hic recusandae eveniet non praesentium veritatis.
+                </div>
+            </article>    
+
+            <article class="message is-warning">
+                <div class="message-header">
+                    <p>About Us</p>
+                </div>
+                <div class="message-body">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi esse eius sed culpa accusantium hic recusandae eveniet non praesentium veritatis.
+                </div>
+            </article> 
+
+            <article class="message is-danger">
+                <div class="message-header">
+                    <p>About Us</p>
+                </div>
+                <div class="message-body">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi esse eius sed culpa accusantium hic recusandae eveniet non praesentium veritatis.
+                </div>
+            </article> 
+        </div>
+
+        <!-- NAVBAR -->
+        <!-- nav is deprecated -->
+
+        <div class="block">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a href="#" class="navbar-item">
+                        <h1 class="title is-3">Logo</h1>
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" data-target="navTest" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navTest">
+                   <div class="navbar-start">
+                        <a href="#" class="navbar-item">teste</a> 
+                        <a href="#" class="navbar-item">teste b</a>  
+                    </div>
+                   <div class="navbar-end">
+                        <a href="#" class="navbar-item">teste c</a>
+                   </div>    
+                    
+                </div>
+               
+            </nav>
+        </div>
+
+        <div class="block">
+            <aside class="menu">
+                <p class="menu-label">Label 1</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#" class="is-active">Link 1</a>
+                        <ul>
+                            <li>Link1</li>
+                            <li>Link2</li>
+                            <li>Link3</li>
+                        </ul>
+                    </li>
+                    <li>Link TOP</li>
+                    <li>Link TOP2</li>
+                </ul>
+                <p class="menu-label">Label2</p>
+                <ul>
+                    <li>Top</li>
+                    <li>Bottom</li>
+                </ul>
+            </aside>
+        </div>
+
+        <div class="block">
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">Hero Title</h1>
+                        <h2 class="subtitle">Hero Subtitle</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">Hero Title</h1>
+                        <h2 class="subtitle">Hero Subtitle</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="hero is-success">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">Hero Title</h1>
+                        <h2 class="subtitle">Hero Subtitle</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="hero is-info">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">Hero Title</h1>
+                        <h2 class="subtitle">Hero Subtitle</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="hero is-danger">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">Hero Title</h1>
+                        <h2 class="subtitle">Hero Subtitle</h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- CARDS-->
+
+        <div class="block">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, amet.</p>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item"><span>View on <a href="#"><i class="fa fa-facebook"></i> Facebook</a></span></p>
+                    <p class="card-footer-item"><span>View on <a href="#">Facebook</a></span></p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+
+        <div class="block">
+            <nav class="pagination">
+                <a href="" class="pagination-previous" disabled>Previous</a>
+                <a href="" class="pagination-next">Next page</a>
+                <ul class="pagination-list">
+                    <li><a href="" class="pagination-link is-current">1</a></li>
+                    <li><a href="" class="pagination-link">2</a></li>
+                    <li><a href="" class="pagination-link">3</a></li>
+
+                </ul>
+            </nav>
+        </div>
+
+        <!-- LEVEL -->
+
+        <div class="block">
+            <nav class="level">
+                <div class="level-left">
+                    <p class="level-item"><strong>All</strong></p>
+                    <p class="level-item"><a>Published</a></p>
+                    <p class="level-item"><a>Draft</a></p>
+                    <p class="level-item"><a>Deleted</a></p>
+                    <p class="level-item"><a class="button is-primary">New</a></p>                
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <div class="field">
+                            <p class="control">
+                                <input type="text" class="input" placeholder="Search">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- FORMS -->
+
+        <div class="block">
+            <form action="">
+                <div class="field">
+                    <label for="" class="label">Name</label>
+                    <input type="text" class="input" placeholder="Enter Name">
+                </div>
+                <div class="field">
+                    <label for="" class="label">Name</label>
+                    <input type="text" class="input is-success" placeholder="Enter Name">
+                </div>
+                <div class="field">
+                    <label for="" class="label">Name</label>
+                    <input type="text" class="input is-danger" placeholder="Enter Name">
+                </div>
+                
+                <div class="field">
+                    <label for="" class="label">Package</label>
+                    <p class="control">
+                        <span class="select">
+                            <select name="" id="">
+                                <option value="Select Dropdown">Select Dropdown</option>
+                                <option value="Simple">Simple</option>
+                                <option value="Standard">Standard</option>
+
+                            </select>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <label for="" class="label">Message</label>
+                    <p class="control">
+                        <textarea name="" id="" cols="30" rows="10" class="textarea"></textarea>
+                    </p>
+                </div>
+
+  
+
+            </form>
+        </div>
+
+        <!-- ATTACHED -->
+
+        <div class="block">
+            <div class="field has-addons">
+                <p class="control">
+                    <input type="text" class="input" placeholder="Enter Keyords">
+                </p>
+                <p class="control">
+                    <a href="" class="button is-info">Search</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="block">
+                <div class="field has-addons">
+                    <p class="control">
+                        <span class="select">
+                            <select name="" id="">
+                                <option value="$">$</option>
+                                <option value="lei">lei</option>
+                                <option value="euro">euro</option>
+                            </select>
+                        </span>
+                    </p>
+                    <p class="control">
+                        <input type="text" class="input" placeholder="Enter amount">
+                    </p>
+                    <p class="control">
+                        <a href="" class="button is-info">Pay</a>
+                    </p>
+                </div>
+            </div>
+
+        
+        <!-- TABLES -->
+
+        <div class="block">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>email@</td>
+                        <td>2222</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>email@</td>
+                        <td>2222</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>email@</td>
+                        <td>2222</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table is-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            <table class="table is-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="is-selected">
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>email@</td>
+                            <td>2222</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table is-narrow">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>email@</td>
+                                <td>2222</td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>email@</td>
+                                <td>2222</td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>email@</td>
+                                <td>2222</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+
+        <!-- GRID -->
+
+
+        <div class="block">
+            <div class="columns">
+                <div class="column">
+                    <p class="notification">First Column</p>
+                </div>
+                <div class="column">
+                    <p class="notification">Second Column</p>
+                </div>
+                <div class="column">
+                    <p class="notification">Third Column</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="columns">
+                <div class="column is-2">
+                    <p class="notification">2 Column</p>
+                </div>
+                <div class="column is-8">
+                    <p class="notification">8 Column</p>
+                </div>
+                <div class="column is-2">
+                    <p class="notification">2 Column</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="columns">
+                <div class="column is-three-quarters">
+                    <p class="notification">is three quarters</p>
+                </div>
+                <div class="column">
+                    <p class="notification"> Column</p>
+                </div>
+                <div class="column">
+                    <p class="notification"> Column</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:400px"></div>
+
+    </div>
+{{ end }}

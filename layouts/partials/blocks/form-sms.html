@@ -1,0 +1,18 @@
+<div class="field">
+    <header><h2 class="is-2 panel-heading">{{ i18n `contactSMSTitle` }}</h2></header>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">{{ i18n `contactSMSMessageLabel` }}*</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <textarea class="textarea" rows="5" name="message" disabled>{{ i18n `contactSMSMessage` }} {{ .Title }}</textarea>
+        </div>
+    </div>
+</div>
+<p class="help">{{ i18n `contactSMSHelp`}}</p>
+<p class="field is-grouped is-grouped-centered">
+    <a class="button is-primary is-fullwidth has-text-white" href="sms:{{ $.Site.Params.phone1 }}?body=Ma intereseaza: {{ .Title }}">{{ i18n `contactSMSSend`}}</a>
+</p>

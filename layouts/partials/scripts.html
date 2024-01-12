@@ -1,0 +1,45 @@
+<script type="application/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js', { scope: '/' })
+            .then(function (registration) {
+                console.log('Service Worker Registered');
+            });
+
+        navigator.serviceWorker
+            .ready
+            .then(function (registration) {
+                console.log('Service Worker Ready');
+            });
+    }
+</script>
+
+{{ $libraries := resources.Match "js/active/*.js" | resources.Concat "js/libraries.js" }}
+{{ $mainjs := resources.Get "js/main.js" }}
+
+
+{{ if hugo.IsProduction }}
+{{ $js := slice $libraries $mainjs | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint "sha384"
+}}
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+{{ if $.Site.Params.cookieBot }}
+{{ partial "widgets/cookies/cookiebot.html" . }}
+{{ end }}
+{{ if .Site.Params.cookieOsano }}
+{{ partial "widgets/cookies/cookieosano.html" . }}
+{{ end }}
+{{ if .Site.Params.marketing.google_tag_manager }}
+{{ partial "widgets/marketing/google_GTM.html" . }}
+{{ end }}
+{{ if .Site.Params.marketing.google_analytics }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+{{ else }}
+{{ $js := slice $libraries $mainjs | resources.Concat "js/bundle.js" }}
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+
+{{ if ne $.Site.Params.map.engine 0 }}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+{{ end}}

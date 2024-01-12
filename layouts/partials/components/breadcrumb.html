@@ -1,0 +1,36 @@
+{{ $dot := . }}
+{{ $dot.Scratch.Set "path" "" }}
+{{ $dot.Scratch.Set "breadcrumb" slice }}
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+    {{ $.Scratch.Add "path" .Site.BaseURL }}
+
+    {{ $.Scratch.Add "breadcrumb" (slice (dict "url" .Site.BaseURL "name" "home" "position" 1 )) }}
+    <ol class="breadcrumbs">
+        <li><a href="/" rel="noopener noreferrer nofollow">Home</a></li>
+        {{ range $index, $element := split $url "/" }}
+        {{ $dot.Scratch.Add "path" $element }}
+            {{ $.Scratch.Add "path" "/" }}
+            {{ if ne $element "" }}
+            <li><a href='{{ $.Scratch.Get "path" }}' rel="noopener noreferrer nofollow">{{ humanize . }}</a></li>
+            {{ $.Scratch.Add "breadcrumb" (slice (dict "url" ($.Scratch.Get "path") "name" . "position" (add $index 2))) }}
+            {{ end }}
+        {{ end }}
+    </ol>
+</nav>
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{{ range $.Scratch.Get "breadcrumb" }}{{ if ne .position 1 }},{{ end }}{
+            "@type": "ListItem",
+            "position": {{ .position }},
+            "item": {
+              "@id": "{{ .url }}",
+              "name": "{{ .name }}"
+            }
+        }{{ end }}]
+    }
+</script>

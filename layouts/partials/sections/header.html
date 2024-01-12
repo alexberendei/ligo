@@ -1,0 +1,17 @@
+<section class="hero {{ if eq site.Params.carousel.front "hero" }} is-large has-carousel{{ end }}" data-header-group="is-hidden">
+    <div class="hero-head">
+        {{ partial "sections/header_top.html" . }}
+        {{ partial "components/navbar.html" . }}
+    </div>
+    {{ if and .IsHome (eq site.Params.carousel.front "hero") }}
+        <div class="hero-body">
+            {{ partial "bulma-extensions/hero-carousel.html" . }}
+        </div>    
+    {{ end }}
+    {{ if and .IsHome (eq site.Params.carousel.front "normal") }}
+        {{ partial "bulma-extensions/carousel.html" . }}
+    {{ end }}
+    {{ if ne .Kind "home" }}
+        {{ partial "sections/header_title.html" . }}
+    {{ end }}
+</section>

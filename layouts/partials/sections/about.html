@@ -1,0 +1,17 @@
+{{ if isset site.Params "about" }}
+{{ if site.Params.about.enable }}
+<section class="section about" data-header-group="is-hidden">
+    <div class="container box">
+        <div class="columns is-vcentered">
+            <div class="column is-9">
+                <h3 class="title is-5 has-text-success">{{ .Site.Params.about.title | safeHTML }}</h3>
+                <h1 class="title is-1">{{ .Site.Params.about.description | safeHTML }}</h1>
+            </div>
+            <div class="column is-3 has-text-centered has-text-warning">
+                {{ .Site.Params.about.checklist | safeHTML }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}

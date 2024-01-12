@@ -1,0 +1,201 @@
+<head itemscope itemtype="{{ .Site.BaseURL }}">
+  {{ if .Site.Params.marketing.google_ga4 }} {{ partial "widgets/marketing/google_GTM.html" . }} {{ end }}
+  <!-- ###### Title  ###### -->
+  <title itemprop="name">
+    {{ if not .IsHome }}{{ .Title }} |{{ end }}{{ site.Title }}
+  </title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+  <base href="{{ .Permalink }}" />
+  <link rel="canonical" href="{{ .Permalink }}" itemprop="url" />
+  <meta name="url" content="{{ .Permalink }}" />
+  <meta name="twitter:url" content="{{ .Permalink }}" />
+  <!-- ###### ROBOTS -->
+  {{- with .Params.robotsdisallow }}
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  {{ else }}
+  <meta name="robots" content="index,follow,archive" />
+  <meta name="googlebot" content="index,follow,archive" />
+  {{ end }}
+  {{ hugo.Generator }}
+  <!-- ###### Theme color -->
+  {{- partial "functions/parse_theme" . -}}
+  {{ if ne (.Scratch.Get "primary") "#fff" -}}
+  <meta name="theme-color" content="{{ .Scratch.Get " primary" -}}" />
+  <meta name="msapplication-TileColor" content="{{ .Scratch.Get " primary" -}}" />
+  {{- end -}}
+  <!-- ###### Keywords & Description -->
+  {{- if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords " , " }}" />
+  {{ else if .Site.Params.default_keywords }}
+  <meta name="keywords" content="{{ delimit .Site.Params.default_keywords " , " }}" />
+  {{ end }}
+  {{- $desc := "" }}
+  {{- if .Params.description }}
+  {{- $desc = .Params.description }}
+  {{- else if .Params.summary }}
+  {{- $desc = .Params.summary }}
+  {{- else if .Params.abstract }}
+  {{- $desc = .Params.abstract }}
+  {{- else if .IsPage }}
+  {{- $desc = .Summary }}
+  {{- else if and (.IsNode) (ne .Kind "home") }}
+  {{- $desc = .Title }}
+  {{- else }}
+  {{- $desc = .Site.Params.default_description }}
+  {{- end -}}
+  <meta name="description" content="{{ $desc }}" />
+  <!-- ###### Translations -->
+  <meta property="og:locale" content="{{ .Language.Lang }}" />
+  <meta name="language" content="{{ .Language.LanguageName }}" />
+  {{ range .AllTranslations -}}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" />
+  {{ end }}
+  <!-- ##### CSS ######  -->
+  {{- partial "head_dartsass" . -}}
+  <!-- ##### JS ######  -->
+  {{ $js := site.Data.assets.js }}
+  <!-- ###### Favicon and apple touch icons ###### -->
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}img/favicons/favicon.ico" />
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="{{ .Site.BaseURL }}img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ .Site.BaseURL }}img/favicons/favicon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}img/favicons/favicon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ .Site.BaseURL }}img/favicons/favicon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ .Site.BaseURL }}img/favicons/favicon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ .Site.BaseURL }}img/favicons/favicon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ .Site.BaseURL }}img/favicons/favicon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}img/favicons/favicon-180x180.png" />
+  <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}img/favicons/favicon-57x57.png" />
+  <link rel="icon" href="{{ .Site.BaseURL }}img/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" sizes="192x192" href="{{ .Site.BaseURL }}img/favicons/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}img/favicons/favicon-180x180.png" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-128x128.png" sizes="128x128" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" sizes="270x270" />
+  <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-512x512.png" sizes="512x512" />
+
+  <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
+  <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="{{ .Site.BaseURL }}img/favicons/favicon-128x128.png" />
+  <meta name="msapplication-square150x150logo" content="{{ .Site.BaseURL }}img/favicons/favicon-152x152.png" />
+  <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" />
+  <meta name="msapplication-config" content="none" />
+
+  <!-- ###### PRODUCTION | robots | DNS-prefetch | preconnect | verification  ###### -->
+  {{ if hugo.IsProduction }}
+  {{ if $.Site.Params.cookieBot }}
+  <link rel="dns-prefetch preconnect" href="//consent.cookiebot.com" crossorigin />
+  {{ end }}
+  {{ if $.Site.Params.cookieOsano }}
+  <link rel="dns-prefetch preconnect" href="//cmp.osano.com" crossorigin />
+  {{ partial "widgets/cookies/cookieosano.html" . }}
+  {{ end }}
+  {{ if $.Site.Params.cookieOrestbida }}
+  {{ partial "widgets/cookies/cookieconsent-orestbida-head.html" . }}
+  {{ end }}
+  {{ if $.Site.Params.marketing.google_tag_manager }}
+  <link rel="dns-prefetch preconnect" href="//www.googletagmanager.com" crossorigin />
+  {{ end }}
+  {{ if $.Site.Params.search }}
+  <link rel="dns-prefetch preconnect" href="//cdnjs.cloudflare.com" crossorigin />
+  {{ end }}
+  <!-- Site verification -->
+  {{ if $.Site.Params.seo.webmaster_verifications.google }}
+  <meta name="google-site-verification" content="{{ .Site.Params.seo.webmaster_verifications.google }}" />
+  {{ end }}
+  {{ if $.Site.Params.seo.webmaster_verifications.bing }}
+  <meta name="msvalidate.01" content="{{ .Site.Params.seo.webmaster_verifications.bing }}" />
+  {{ end }}
+  {{ if $.Site.Params.seo.webmaster_verifications.alexa }}
+  <meta name="alexaVerifyID" content="{{ .Site.Params.seo.webmaster_verifications.alexa }}" />
+  {{ end }}
+  {{ if $.Site.Params.seo.webmaster_verifications.yandex }}
+  <meta name="yandex-verification" content="{{ .Site.Params.seo.webmaster_verifications.yandex }}" />
+  {{ end }}
+  {{ end }}
+  <!-- ###### JSON SCHEMA  ###### -->
+  {{- partial "jsonld/main" (dict "page" . "summary" .Summary) -}}
+  <!-- ###### IMAGE  ###### -->
+  {{ with .Params.image }}
+  <meta itemprop="image" content="{{ . | absURL }}" />
+  <meta name="twitter:image:src" content="{{ . | absURL }}" />
+  {{ else }}
+  <meta itemprop="image" content="{{ .Site.Params.banner | absURL }}" />
+  <meta name="twitter:image:src" content="{{ .Site.Params.banner | absURL }}" />
+  {{ end }}
+  <!-- ###### DATE TAG ###### -->
+  <meta property="og:updated_time" content="{{ .Lastmod.Format " 2006-01-02T15:04:05Z0700" | safeHTML }}" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml" />
+  {{ with .OutputFormats.Get "RSS" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{ end }}
+  <!-- ###### INTERNAL TEMPLATES ###### -->
+  <!-- SCHEMA tags -->
+  {{- template "_internal/schema.html" . -}}
+  <!-- OpenGraph tags -->
+  {{- template "_internal/opengraph.html" . -}}
+  <!-- Twitter cards-->
+  {{- template "_internal/twitter_cards.html" . -}}
+  <!-- Disqus-->
+  {{- template "_internal/disqus.html" . -}}
+  <!-- ###### CUSTOM TEMPLATES ###### -->
+  {{ if $.Site.Params.fb_app_id }}
+  <meta property="fb:app_id" content="{{ .Site.Params.fb_app_id }}" />
+  <meta property="fb:admins" content="{{ .Site.Params.fb_admins }}" />
+  {{ end }}
+  <!-- ###### NETLIFY CSM ###### -->
+  {{/* Netlify Identity integration. */}}
+  {{ if .IsHome | and (site.Params.cms.netlify_cms | default false) }}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {{ end }}
+
+
+  <!-- To make sure this renders only in the article page, we check the section -->
+  {{ if eq .Section "blog" }}
+  <!-- Pagination meta tags for list pages only -->
+  {{ $paginator := .Paginate (where .Pages "Section" "blog") }}
+  {{ if $paginator }}
+  <link rel="first" href="{{ $paginator.First.URL }}" />
+  <link rel="last" href="{{ $paginator.Last.URL }}" />
+  {{ if $paginator.HasPrev }}
+  <link rel="prev" href="{{ $paginator.Prev.URL }}" />
+  {{ end }}
+  {{ if $paginator.HasNext }}
+  <link rel="next" href="{{ $paginator.Next.URL }}" />
+  {{ end }}
+  {{ end }}
+
+
+  <meta property="og:type" content="article" />
+  <meta property="article:publisher" content="{{ .Site.Params.facebook }}" />
+  <meta property="og:article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z0700" | safeHTML }}" />
+  <meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z0700" | safeHTML }}" />
+
+  {{ with.Params.author }}
+  <meta property="og:article:author" content="{{ humanize . }}" />
+  <meta property="article:author" content="{{ humanize . }}" />
+  <meta name="author" content="{{ humanize . }}" />
+  {{ end }}
+
+  {{ with.Params.category }}
+  <meta name="news_keywords" content="{{ index . 0 }}" />
+  <meta property="article:section" content="{{ index . 0 }}" />
+  {{ end }}
+  {{ end }}
+
+
+  <meta name="imagemode" content="force" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="distribution" content="Global" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="apple-mobile-web-app-title" content="{{ .Site.Params.sitename }}" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+</head>

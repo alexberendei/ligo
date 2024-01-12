@@ -1,0 +1,63 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <!-- *** MAIN COLUMN *** -->
+            <div class="column is-9">
+                <nav class="level">
+                    <div class="level-left">
+                        {{ partial "components/breadcrumb.html" . }}
+                    </div>
+                    <div class="level-right">
+                        <p class="text-muted text-uppercase mb-small text-right">{{ if .Params.author }}{{ i18n
+                            "authorBy" }} <a href="#" rel="noopener noreferrer nofollow">{{ .Params.author }}</a> | {{
+                            end }}{{ if .Params.date }} {{ .Date.Format .Site.Params.date_format }}{{end}}</p>
+                    </div>
+                </nav>
+                <main class="main">
+                    {{ if .Params.banner }}
+                    <figure class="image">
+                        <picture>
+                            {{ $webpPath := printf "%s%s%s" "static/" .Params.banner ".webp" }}
+                            {{ if (fileExists $webpPath ) -}}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.banner }}.webp" type="image/webp">
+                            {{- end }}
+                            <source srcset="{{ .Site.BaseURL}}{{ .Params.banner }}" type="image/jpeg">
+                            <img loading="lazy" src="{{ .Site.BaseURL}}{{ .Params.banner }}" alt="{{ .Title }}">
+                        </picture>
+                    </figure>
+                    <hr>
+                    {{ end }}
+                    <div class="content">
+                        {{ .Content }}
+
+                        {{ partial "widgets/social/sharebuttons.html" . }}
+                    </div>
+
+                    {{ partial "blocks/image-gallery-carousel.html" . }}
+
+                </main>
+            </div><!-- *** MAIN COLUMN END *** -->
+            <!-- *** RIGHT COLUMN *** -->
+            <div class="column is-3">
+                <!-- *** MENUS AND WIDGETS *** -->
+                {{ partial "blocks/sidebar.html" . }}
+                <!-- *** MENUS AND FILTERS END *** -->
+            </div>
+            <!-- *** RIGHT COLUMN END *** -->
+        </div>
+    </div>
+</section>
+{{ partial "widgets/show_related.html" . }}
+
+{{ with .Resources.ByType "image" }}
+{{ range . }}
+{{ .RelPermalink }}
+{{ end }}
+{{ end }}
+
+{{ end }}
