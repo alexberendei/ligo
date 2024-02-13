@@ -1,6 +1,6 @@
 {
     "name": "LIGO",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "LIGO - Clean Hugo Theme based on Bulma",
     "main": "index.js",
     "scripts": {
@@ -8,10 +8,7 @@
         "dev:preview": "npm run dev -- --buildDrafts --buildFuture",
         "build": "hugo --verbose --minify --cleanDestinationDir --gc",
         "renderToDisk": "hugo server --disableFastRender --gc --renderToDisk --cleanDestinationDir",
-        "renderToDisk:production": "npm run renderToDisk -- --minify --envoronment production",
-        "format:check": "prettier --check .",
-        "installfonts": "cp node_modules/@fortawesome/fontawesome-free/webfonts/*.* node_modules/@fontsource/playfair-display/files/*.* node_modules/@fontsource/roboto/files/*.* static/webfonts && exit 1",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "renderToDisk:production": "npm run renderToDisk -- --minify --envoronment production"
     },
     "author": "Alexandru Berendei",
     "license": "MIT",

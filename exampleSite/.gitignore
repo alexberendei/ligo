@@ -62,3 +62,5 @@ _testmain.go
 
 *.exe
 *.test
+*.py
+*.csv

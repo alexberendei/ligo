@@ -2,7 +2,6 @@
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
-
 [[main]]
   name = "Home"
   url = "/"
@@ -19,7 +18,6 @@
   name = "Contact"
   url = "/contact/"
   weight = 40
-
 
 # Link to a PDF / DOC  -> To enable, copy your PDF / DOC to `static/media/doc.pdf` and uncomment the lines below.
 # [[main]]
@@ -46,3 +44,10 @@
     name = "Email"
     url = "mailto:your@email.com"
     pre = "<i class='fa fa-envelope'></i>"
+
+
+[[footerbar]]
+    weight = 1
+    name = "GitHub"
+    url = "/privacy-policy"
+    pre = "Privacy policy"

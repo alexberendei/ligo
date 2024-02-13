@@ -1,7 +1,7 @@
 {{- $scr := .Scratch -}}
 {
     "name": "{{site.Title}}",
-    "short_name": "{{ slicestr site.Title 3 12 | safeHTML }}",
+    "short_name": "{{ slicestr site.Title 0 12 | safeHTML }}",
     "lang": "{{ site.LanguageCode | default "en-us" }}",
     "theme_color": "{{ $scr.Get "primary" }}",
     "background_color": "{{ $scr.Get "primary" }}",

@@ -50,7 +50,6 @@
   url = "/contact/"
   weight = 40
 
-
 [[ro.menus.social]]
     weight = 1
     name = "GitHub"

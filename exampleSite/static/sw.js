@@ -1,7 +1,7 @@
 const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
-    '/index.webmanifest',
+    '/manifest.webmanifest',
     '/img/favicons/favicon.ico',
 ];
 

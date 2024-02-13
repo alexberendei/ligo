@@ -1,21 +1,17 @@
 <footer class="footer has-background-primary has-text-white">
     <div class="container">
         <div class="columns">
-            {{ if isset .Site.Params "about_us" }}
+            {{ if .Site.Params.footer.footer_about_us }}
             <div class="column is-4">
                 <h4 class="title is-4 is-uppercase">{{ i18n "aboutUs" }}</h4>
-                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                    data-src="{{ .Site.BaseURL }}{{ .Site.Params.logo.url }}" alt="{{ .Title }} logo"
-                    class="logo is-hidden-touch">
-                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                    data-src="{{ .Site.BaseURL }}{{ .Site.Params.logosmall.url }}" alt="{{ .Title }} logo"
-                    class="logo is-hidden-desktop">
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL }}{{ .Site.Params.logo.url }}" alt="{{ .Title }} logo" class="logo is-hidden-touch">
+                <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL }}{{ .Site.Params.logosmall.url }}" alt="{{ .Title }} logo" class="logo is-hidden-desktop">
                 <span class="is-sr-only">{{ .Title }} - {{ i18n "navHome" }}</span>
-                {{ .Site.Params.footer_about_us | markdownify }}
+                <hr>
+                {{ .Site.Params.footer.footer_about_us | markdownify }}
                 <hr>
                 {{ range .Site.Menus.footerbar.ByWeight }}
-                <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow">{{ .Pre }} <span
-                        class="hidden-text">{{ .Name }}</span></a>
+                    <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow">{{ .Pre }} <span class="hidden-text">{{ .Name }}</span></a>
                 {{ end }}
             </div>
             {{ end }}
@@ -61,7 +57,6 @@
             {{ if isset .Site.Params "address" }}
             <div class="column is-4">
                 <h4 class="title is-4 is-uppercase">{{ i18n "contactTitle" }}</h4>
-
                 {{ .Site.Params.address.html | markdownify }}
                 <hr>
                 <a href="/contact" class="button is-primary" rel="noopener noreferrer nofollow">{{ i18n "contactGoTo"
@@ -70,7 +65,6 @@
             {{ end }}
         </div>
     </div>
-    <!-- *** COPYRIGHT *** -->
     <section class="copyright has-text-centered">
         <div class="container">
             {{ if isset .Site.Params "copyright" }}
@@ -78,6 +72,4 @@
             {{ end }}
         </div>
     </section>
-    <!-- /#copyright -->
-    <!-- *** COPYRIGHT END *** -->
 </footer>

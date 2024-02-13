@@ -15,6 +15,9 @@
         -   FreeCookieScript [in progress]
         -   Cookiebot [3rd party]
         -   CookieOsano [3rd party]
+    -   Contact
+        -   Contact
+        -   Whatsapp button
     -   Marketing
         -   Google TAG Manager
     -   Social
@@ -38,16 +41,13 @@
 
 -   hugo new site siteName
 -   cd siteName/themes
--   Add the repository into your Hugo Project repository as a submodule, git submodule add git@github.com:alexberendei/ligo.git ligo
+-   Add the repository into your Hugo Project repository as a submodule, `git submodule add git@github.com:alexberendei/ligo.git ligo`
 -   cd ../ && cp -a themes/ligo/exampleSite/\* .
 -   npm install
 -   hugo serve -D
 
-// HUGO MODULES in the future
-// hugo mod init randomName
-//// if init does not work, comment the modules from hugo.toml and repeat
-// hugo mod get
-// hugo mod vendor (optional)
+// HUGO MODULES in the future // hugo mod init randomName // if init does not work, comment the modules from hugo.toml and repeat
+// hugo mod get // hugo mod vendor (optional)
 
 ## Licensing
 

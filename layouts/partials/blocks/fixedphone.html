@@ -6,9 +6,10 @@
             <a class="navbar-item" href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone }}</a>
             {{ end }}
             {{ if .Site.Params.phone2 }}
-            <a class="navbar-item" href="tel:{{ .Site.Params.phone2 }}">{{ .Site.Params.phone2 }}</a>   
+            <a class="navbar-item" href="tel:{{ .Site.Params.phone2 }}">{{ .Site.Params.phone2 }}</a>
             {{ end }}
+            {{ if .Site.Params.whatsapp }} {{ partial "widgets/contact/whatsapp-button.html" . }} {{ end }}
         </div>
     </nav>
-  </div>
-  {{ end }}
+</div>
+{{ end }}

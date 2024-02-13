@@ -77,14 +77,12 @@
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-196x196.png" sizes="196x196" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" sizes="270x270" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-512x512.png" sizes="512x512" />
-
   <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
   <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-144x144.png" />
   <meta name="msapplication-square70x70logo" content="{{ .Site.BaseURL }}img/favicons/favicon-128x128.png" />
   <meta name="msapplication-square150x150logo" content="{{ .Site.BaseURL }}img/favicons/favicon-152x152.png" />
   <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" />
   <meta name="msapplication-config" content="none" />
-
   <!-- ###### PRODUCTION | robots | DNS-prefetch | preconnect | verification  ###### -->
   {{ if hugo.IsProduction }}
   {{ if $.Site.Params.cookieBot }}
@@ -141,8 +139,6 @@
   {{- template "_internal/opengraph.html" . -}}
   <!-- Twitter cards-->
   {{- template "_internal/twitter_cards.html" . -}}
-  <!-- Disqus-->
-  {{- template "_internal/disqus.html" . -}}
   <!-- ###### CUSTOM TEMPLATES ###### -->
   {{ if $.Site.Params.fb_app_id }}
   <meta property="fb:app_id" content="{{ .Site.Params.fb_app_id }}" />
@@ -153,7 +149,6 @@
   {{ if .IsHome | and (site.Params.cms.netlify_cms | default false) }}
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {{ end }}
-
 
   <!-- To make sure this renders only in the article page, we check the section -->
   {{ if eq .Section "blog" }}
@@ -169,26 +164,20 @@
   <link rel="next" href="{{ $paginator.Next.URL }}" />
   {{ end }}
   {{ end }}
-
-
   <meta property="og:type" content="article" />
   <meta property="article:publisher" content="{{ .Site.Params.facebook }}" />
   <meta property="og:article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z0700" | safeHTML }}" />
   <meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z0700" | safeHTML }}" />
-
   {{ with.Params.author }}
   <meta property="og:article:author" content="{{ humanize . }}" />
   <meta property="article:author" content="{{ humanize . }}" />
   <meta name="author" content="{{ humanize . }}" />
   {{ end }}
-
   {{ with.Params.category }}
   <meta name="news_keywords" content="{{ index . 0 }}" />
   <meta property="article:section" content="{{ index . 0 }}" />
   {{ end }}
   {{ end }}
-
-
   <meta name="imagemode" content="force" />
   <meta name="coverage" content="Worldwide" />
   <meta name="distribution" content="Global" />
