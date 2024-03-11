@@ -1,122 +1,79 @@
 {{ define "title" }}
-  {{ .Title }} | Blog
+{{ .Title }} | Blog
 {{ end }}
 
 {{ define "main" }}
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <!-- *** MAIN COLUMN *** -->
-        <div class="column is-9">
-          {{ partial "components/breadcrumb.html" . }}
-          {{ $paginator := .Paginate (where site.RegularPages "Type" "blog") 8 }}
-          {{ range $paginator.Pages }}
-            <article class="media box">
-              <figure class="media-left">
-                <a
-                  class="image is-128x128"
-                  href="{{ .Permalink }}"
-                  rel="noopener noreferrer nofollow"
-                >
-                  {{ if .Params.thumb }}
-                    <picture>
-                      {{ $webpPath := printf "%s%s%s" "static/" .Params.thumb ".webp" }}
-                      {{ if (fileExists  $webpPath ) -}}
-                        <source
-                          srcset="{{ .Site.BaseURL }}{{ .Params.thumb }}.webp"
-                          type="image/webp"
-                        />
-                      {{- end }}
-                      <source
-                        srcset="{{ .Site.BaseURL }}{{ .Params.thumb }}"
-                        type="image/jpeg"
-                      />
-                      <img
-                        loading="lazy"
-                        src="{{ .Site.BaseURL }}{{ .Params.thumb }}"
-                        alt="{{ .Title }}"
-                      />
-                    </picture>
-                  {{ else }}
-                    {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
-                    {{ if (fileExists $svgPlaceholder) -}}
-                      <img
-                        loading="lazy"
-                        src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                        data-src="{{ .Site.BaseURL }}img/placeholder.svg"
-                        alt="{{ .Title }}"
-                      />
-                    {{- else }}
-                      <img
-                        loading="lazy"
-                        src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                        data-src="{{ .Site.BaseURL }}img/placeholder.png"
-                        alt="{{ .Title }}"
-                      />
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-9">
+        {{ partial "components/breadcrumb.html" . }}
+        {{ $paginator := .Paginate (where site.RegularPages "Type" "blog") 8 }}
+        {{ range $paginator.Pages }}
+        <article class="media box">
+          <figure class="media-left">
+            <a class="image is-128x128" href="{{ .Permalink }}" rel="noopener noreferrer nofollow">
+              {{ if .Params.thumb }}
+              <picture>
+                {{ $webpPath := printf "%s%s%s" "static/" .Params.thumb ".webp" }}
+                {{ if (fileExists $webpPath ) -}}
+                <source srcset="{{ .Site.BaseURL }}{{ .Params.thumb }}.webp" type="image/webp" />
+                {{- end }}
+                <source srcset="{{ .Site.BaseURL }}{{ .Params.thumb }}" type="image/jpeg" />
+                <img loading="lazy" src="{{ .Site.BaseURL }}{{ .Params.thumb }}" alt="{{ .Title }}" />
+              </picture>
+              {{ else }}
+              {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
+              {{ if (fileExists $svgPlaceholder) -}}
+              <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                data-src="{{ .Site.BaseURL }}img/placeholder.svg" alt="{{ .Title }}" />
+              {{- else }}
+              <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                data-src="{{ .Site.BaseURL }}img/placeholder.png" alt="{{ .Title }}" />
+              {{ end }}
+              {{ end }}
+            </a>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h3 class="title is-3">
+                <a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title }}</a>
+              </h3>
+              <nav class="level">
+                <div class="level-left">
+                  <p class="subtitle is-6">
+                    {{ if isset .Params "author" }}
+                    {{ i18n "authorBy" }}
+                    <a href="#" rel="noopener noreferrer nofollow">{{ .Params.author }}</a>
                     {{ end }}
-                  {{ end }}
-                </a>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <h3 class="title is-3">
-                    <a
-                      href="{{ .Permalink }}"
-                      rel="noopener noreferrer nofollow"
-                      >{{ .Title }}</a
-                    >
-                  </h3>
-                  <nav class="level">
-                    <div class="level-left">
-                      <p class="subtitle is-6">
-                        {{ if isset .Params "author" }}
-                          {{ i18n "authorBy" }}
-                          <a href="#" rel="noopener noreferrer nofollow"
-                            >{{ .Params.author }}</a
-                          >
-                        {{ end }}
-                        {{ if isset .Params "categories" }}
-                          {{ if gt (len .Params.categories) 0 }}
-                            in
-                            <a
-                              href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}"
-                              rel="noopener noreferrer nofollow"
-                              >{{ index .Params.categories 0 }}</a
-                            >
-                          {{ end }}
-                        {{ end }}
-                      </p>
-                    </div>
-                    <div class="level-right">
-                      <p class="title is-6">
-                        <time
-                          datetime="{{ .Date.Format .Site.Params.date_format_small }}"
-                          ><a
-                            href="{{ .Permalink }}"
-                            rel="noopener noreferrer nofollow"
-                            ><i class="fa fa-calendar-o"></i>
-                            {{ .Date.Format .Site.Params.date_format }}</a
-                          ></time
-                        >
-                      </p>
-                    </div>
-                  </nav>
-                  <p class="intro">{{ .Summary | safeHTML | truncate 120 }}</p>
+                    {{ if isset .Params "categories" }}
+                    {{ if gt (len .Params.categories) 0 }}
+                    in
+                    <a href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}"
+                      rel="noopener noreferrer nofollow">{{ index .Params.categories 0 }}</a>
+                    {{ end }}
+                    {{ end }}
+                  </p>
                 </div>
-              </div>
-            </article>
-          {{ end }}
-          {{ partial "components/pagination.html" . }}
-        </div>
-        <!-- *** LEFT COLUMN END *** -->
-        <!-- *** RIGHT COLUMN *** -->
-        <div class="column is-3 sidebar-sticky">
-          <!-- *** MENUS AND WIDGETS *** -->
-          {{ partial "blocks/sidebar.html" . }}
-          <!-- *** MENUS AND FILTERS END *** -->
-        </div>
-        <!-- *** RIGHT COLUMN END *** -->
+                <div class="level-right">
+                  <p class="title is-6">
+                    <time datetime="{{ .Date.Format .Site.Params.date_format_small }}"><a href="{{ .Permalink }}"
+                        rel="noopener noreferrer nofollow"><i class="fa fa-calendar-o"></i>
+                        {{ .Date.Format .Site.Params.date_format }}</a></time>
+                  </p>
+                </div>
+              </nav>
+              <p class="intro">{{ .Summary | safeHTML | truncate 120 }}</p>
+            </div>
+          </div>
+        </article>
+        {{ end }}
+        {{ partial "components/pagination.html" . }}
+      </div>
+      <div class="column is-3 sidebar-sticky">
+        {{ partial "blocks/sidebar.html" . }}
       </div>
     </div>
-  </section>
+  </div>
+</section>
 {{ end }}

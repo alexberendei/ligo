@@ -4,11 +4,11 @@
 
 
 {{ define "page_bottom" }}
-{{ partial "sections/about.html" . }}
-{{ partial "sections/features.html" . }}
-{{ partial "sections/testimonials.html" . }}
-{{ partial "sections/clients.html" . }}
-{{ partial "sections/cta.html" . }}
-{{ partial "sections/cta_inverted.html" . }}
-{{ partial "sections/recent_posts.html" . }}
+{{ partialCached "sections/about.html" . }}
+{{ partialCached "sections/features.html" . }}
+{{ partialCached "sections/testimonials.html" . }}
+{{ partialCached "sections/clients.html" . }}
+{{ partialCached "sections/cta.html" . }}
+{{ partialCached "sections/cta_inverted.html" . }}
+{{ partialCached "sections/recent_posts.html" . }}
 {{ end }}

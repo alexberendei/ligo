@@ -6,7 +6,6 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <!-- *** MAIN COLUMN *** -->
             <div class="column is-9">
                 <nav class="level">
                     <div class="level-left">
@@ -41,19 +40,14 @@
                     {{ partial "blocks/image-gallery-carousel.html" . }}
 
                 </main>
-            </div><!-- *** MAIN COLUMN END *** -->
-            <!-- *** RIGHT COLUMN *** -->
-            <div class="column is-3">
-                <!-- *** MENUS AND WIDGETS *** -->
-                {{ partial "blocks/sidebar.html" . }}
-                <!-- *** MENUS AND FILTERS END *** -->
             </div>
-            <!-- *** RIGHT COLUMN END *** -->
+            <div class="column is-3">
+                {{ partial "blocks/sidebar.html" . }}
+            </div>
         </div>
     </div>
 </section>
 {{ partial "widgets/show_related.html" . }}
-
 {{ with .Resources.ByType "image" }}
 {{ range . }}
 {{ .RelPermalink }}
