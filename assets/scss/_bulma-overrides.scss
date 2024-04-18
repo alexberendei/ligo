@@ -1,170 +1,67 @@
-////////////////////////////////////////////////
-// Ligo HUGO BULMA (custom) ... for more themes use https://jenil.github.io/bulmaswatch/help/
-////////////////////////////////////////////////
+@use "bulma/sass/utilities/mixins" as *;
+@use "bulma/sass/utilities" as *;
 
-/// **************
-/// **********
-/// ATOMS
-/// **********
-/// **************
+// HELPERS
+////
 
-// GENERAL
+// VARIABLES
+$primary-main: $primary;
+$primary-light: lighten($primary, 30%);
+$primary-hover: darken($primary, 20%);
+$primary-active: darken($primary, 40%);
+$primary-dark: darken($primary, 60%);
+$link-main: $link;
+$link-light: lighten($link, 30%);
+$link-hover: darken($link, 20%);
+$link-active: darken($link, 40%);
+$link-dark: darken($link, 60%);
+$info-main: $info;
+$info-light: lighten($info, 30%);
+$info-hover: darken($info, 20%);
+$info-active: darken($info, 40%);
+$info-dark: darken($info, 60%);
+$success-main: $success;
+$success-light: lighten($success, 30%);
+$success-hover: darken($success, 20%);
+$success-active: darken($success, 40%);
+$success-dark: darken($success, 60%);
+$warning-main: $warning;
+$warning-light: lighten($warning, 30%);
+$warning-hover: darken($warning, 20%);
+$warning-active: darken($warning, 40%);
+$warning-dark: darken($warning, 60%);
+$danger-main: $danger;
+$danger-light: lighten($danger, 30%);
+$danger-hover: darken($danger, 20%);
+$danger-active: darken($danger, 40%);
+$danger-dark: darken($danger, 60%);
+// Gradients
+// LINEAR
+$gradient-linear-primary: linear-gradient(
+    90deg,
+    rgba($primary-main, 1) 0%,
+    rgba($primary-dark, 1) 100%
+);
+$gradient-linear-secondary: linear-gradient(
+    90deg,
+    rgba($primary-main, 1) 0%,
+    rgba($primary-light, 1) 100%
+);
+// RADIAL
+$gradient-radial-primary: radial-gradient(
+    circle,
+    rgba($primary-main, 1) 0%,
+    rgba($primary-dark, 1) 100%
+);
+$gradient-radial-secondary: radial-gradient(
+    circle,
+    rgba($primary-main, 1) 0%,
+    rgba($primary-light, 1) 100%
+);
 
-.button,
-.control.has-icons-left .icon,
-.control.has-icons-right .icon,
-.input,
-.pagination-ellipsis,
-.pagination-link,
-.pagination-next,
-.pagination-previous,
-.select,
-.select select,
-.textarea {
-    height: 2.534em;
-}
 
-.button {
-    &.is-active,
-    &:active {
-        box-shadow: inset 1px 1px 4px rgba($grey-darker, 0.3);
-    }
-    @each $name, $pair in $colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
 
-        &.is-#{$name} {
-            border-color: darken($color, 5);
-
-            &.is-hovered,
-            &:hover {
-                background-color: darken($color, 10);
-            }
-
-            &.is-active,
-            &:active {
-                box-shadow: inset 1px 0 3px rgba($grey-darker, 0.3);
-                background-color: darken($color, 10);
-            }
-        }
-    }
-
-    &.is-loading:after {
-        border-color: transparent transparent $grey-light $grey-light;
-    }
-
-    & i {
-        padding-right: 1em;
-    } // padding on icons
-
-    &.is-multiline {
-        min-height: 2.25em;
-        white-space: unset;
-        height: auto;
-        flex-direction: column;
-    }
-}
-
-.input,
-.textarea {
-    box-shadow: none;
-}
-
-.box,
-.card {
-    box-shadow: 0 0 0 1px $border;
-}
-
-.notification {
-    @each $name, $pair in $colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
-
-        &.is-#{$name} {
-            a:not(.button) {
-                color: $color-invert;
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-.progress,
-.tag {
-    border-radius: $radius;
-}
-
-.logo {
-    max-height: 80px !important;
-    @include desktop {
-        max-height: 100px !important;
-    }
-}
-
-//TYPOGRAPHY
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.content h1,
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6 {
-    font-family: $family-secondary;
-    font-weight: 400;
-    font-display: swap;
-}
-.has-text-white {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .content h1,
-    .content h2,
-    .content h3,
-    .content h4,
-    .content h5,
-    .content h6 {
-        color: $white;
-    }
-    hr {
-        background-color: $white;
-    }
-    a {
-        color: lighten($color: $link, $amount: 70%);
-        &:hover {
-            color: lighten($color: $link, $amount: 95%);
-        }
-    }
-}
-
-.title {
-    font-weight: 400;
-}
-
-.fa {
-    margin-right: 0.2em;
-}
-
-.hidden-text {
-    display: inline-block;
-    height: 1px; /* be sure to set height & width */
-    width: 1px;
-    /* Hide the text. */
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-// Lists
-
+// CUSTOM UL
 ul.checklist {
     list-style: none;
     padding: 0;
@@ -217,8 +114,6 @@ ul.checklist {
     }
 }
 
-// Tweeks /////////////////
-
 // cards
 .equal-height {
     display: flex;
@@ -259,19 +154,15 @@ $sides: left, right;
     }
 }
 
-/// ## HELPERS
-//colors
-
+//color
 .has-background-white-50-alpha {
     background-color: rgba($color: $white, $alpha: 0.5);
 }
-
 .has-background-black-50-alpha {
     background-color: rgba($color: $black, $alpha: 0.5);
 }
 
-// margin / padding helper
-
+// margin / padding
 $sizeUnit: rem;
 $marginKey: "m";
 $paddingKey: "p";
@@ -312,7 +203,18 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
         }
     }
 }
-// end margin / padding helper
+
+// / **************
+// / **********
+// / ATOMS
+// / **********
+
+.logo {
+    max-height: 80px !important;
+    @include desktop {
+        max-height: 100px !important;
+    }
+}
 
 /// **************
 /// **********
@@ -341,17 +243,6 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
         .navbar-menu {
             background-color: inherit;
         }
-
-        @each $name, $pair in $colors {
-            $color: nth($pair, 1);
-            $color-invert: nth($pair, 2);
-            &.is-#{$name} {
-                .navbar-item,
-                .navbar-link {
-                    color: $color-invert;
-                }
-            }
-        }
     }
     .navbar-item,
     .navbar-link {
@@ -363,7 +254,7 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
     }
     @include desktop {
         .has-dropdown .navbar-item {
-            color: $text;
+            // color: $text;
         }
     }
     .navbar-burger a {
@@ -378,7 +269,7 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
     z-index: 50;
     .navbar-start {
         text-align: center;
-        min-height: 3.25rem;
+        min-height: 4rem;
         flex-grow: 1;
         align-items: center;
         justify-content: center;
@@ -399,27 +290,22 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
 }
 
 // language dropdown
-
-@include mobile {
-    .i18n-dropdown #dropdown-menu {
-        width: 200px;
-        margin-left: 50%;
-        left: -100px;
-        margin-top: -0.5em;
-        a {
-            padding: 0.5em 0 0.5em 0;
-        }
+.i18n-dropdown #dropdown-menu {
+    width: 200px;
+    margin-left: 50%;
+    left: -100px;
+    margin-top: -0.5em;
+    a {
+        padding: 0.5em 0 0.5em 0;
     }
 }
 
-/// **************
-/// **********
-// ORGANISMS
-/// **********
-/// **************
 
-// CAROUSEL SECTION
-//
+// / **************
+// / **********
+// ORGANISMS
+// / **********
+
 .carousel {
     overflow: hidden;
 }
@@ -429,8 +315,16 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
     .slider {
         width: 0;
         min-width: 100%;
+    }   
+}
+
+.hero-carousel {
+    // fix bulma carousel resize https://github.com/Wikiki/bulma-carousel/issues/73
+    .slider-item {
+        width: 100vw !important;
     }
 }
+
 // MAIN CAROUSEL
 #main-carousel {
     .slider-container {
@@ -448,13 +342,6 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
             height: 100% !important;
         }
     }
-    .title {
-        position: relative;
-        background: transparent;
-        font-size: 2em;
-        text-transform: uppercase;
-        padding: 0;
-    }
     figure {
         &,
         img {
@@ -467,11 +354,11 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
         }
         figcaption {
             position: absolute;
-            background-color: rgba($primary, 0.7);
+            background-color: rgba($primary, 0.8);
             left: 0;
             right: 0;
             bottom: 150px;
-            padding: 1em 0;
+            padding: 2em 0;
             &,
             h1 {
                 color: $white;
@@ -479,6 +366,7 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
         }
     }
 }
+
 // header title
 .header-title {
     padding: 2em 0;
@@ -488,6 +376,7 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
 .section.features .card:hover {
     background-color: $grey-lighter;
 }
+
 
 /// **************
 /// **********
@@ -509,8 +398,5 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
     position: sticky;
     top: 0;
 }
-
-// error with horizontal scrolling temp fix (bulma 0.9.4) https://github.com/jgthms/bulma/issues/2242
-.columns {
-    //@extend .mx-0;
-}
+// errors
+// error with horizontal scrolling temp fix (bulma 0.9.4) (use .is-gapless) https://github.com/jgthms/bulma/issues/2242

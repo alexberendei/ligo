@@ -19,9 +19,9 @@
 );
 
 // // import with hugo modules
-@import "fonts/fontawesome/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 // You can include all the other styles the same as before
-@import "fonts/fontawesome/regular.scss";
-@import "fonts/fontawesome/solid.scss";
-@import "fonts/fontawesome/brands.scss";
-@import "fonts/fontawesome/v4-shims.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+@import "@fortawesome/fontawesome-free/scss/v4-shims.scss";

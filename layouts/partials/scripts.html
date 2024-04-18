@@ -31,9 +31,6 @@
 {{ if .Site.Params.marketing.google_tag_manager }}
 {{ partial "widgets/marketing/google_GTM.html" . }}
 {{ end }}
-{{ if .Site.Params.marketing.google_analytics }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
 {{ else }}
 {{ $js := slice $libraries $mainjs | resources.Concat "js/bundle.js" }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>

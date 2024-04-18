@@ -4,11 +4,11 @@
     <div class="container">
         <div class="columns is-vcentered">
             <div class="column is-6 has-text-left-desktop">
-                <p><i class="fa fa-map-marker"></i> {{ .Site.Params.header_top.text }}</p>
+                <p><i class="fas fa-map-marker"></i> {{ .Site.Params.header_top.text }}</p>
             </div>
             <div class="column is-hidden-mobile">
                 <p>
-                    {{/* <i class="fa fa-envelope"></i> */}}
+                    {{/* <i class="fas fa-envelope"></i> */}}
                     {{ .Site.Params.header_top.email }}</p>
             </div>
             <div class="column is-2 has-text-right-desktop">
@@ -24,7 +24,7 @@
             </div>
 
             {{ if .Site.Params.header_top.language }}
-            <div class="column nav-item dropdown i18n-dropdown">
+            <div class="column dropdown i18n-dropdown">
                 <div class="dropdown-trigger">
                     <button class="button is-primary pl-5 pr-5 {{ if $show_current_language }}dropdown-toggle{{end}}"
                         aria-haspopup="true" aria-controls="dropdown-menu" aria-label="{{ i18n " languages" |
@@ -37,14 +37,11 @@
                         {{- end -}}
                     </button>
                 </div>
-                <div class="dropdown-menu " id="dropdown-menu" role="menu">
-                    <div class="dropdown-content has-background-primary">
-                        <a href="#" class="dropdown-item"><span>{{ .Lang }}</span></a>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-item has-background-primary"><span>{{ .Lang }}</span></a>
                         {{ range .Translations }}
-                        <a class="dropdown-item" href="{{ .Permalink }}" {{ if $.IsHome }}
-                            data-target="{{ .RelPermalink }}" {{ end }}>
-                            <span>{{ .Lang }}</span>
-                        </a>
+                        <a class="dropdown-item" href="{{ .Permalink }}" {{ if $.IsHome }} data-target="{{ .RelPermalink }}" {{ end }}><span>{{ .Lang }}</span></a>
                         {{ end }}
                     </div>
                 </div>

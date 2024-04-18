@@ -1,13 +1,14 @@
 ---
 title: "Contact"
-id: "contact"
-banner: "img/banners/banner-4.jpg"
+banner: "img/banners/banner-1.jpg"
 description: "Contact us on our page"
 keywords: ["contact","contact us","contact form","contact company"]
+date: 2024-04-16
+draft: false
 ---
 
 # Contact page
 
-Please feel free to contact us..
+Ne puteti contacta folosind formularul de mai jos..
 
 {{< contactform_standard >}}

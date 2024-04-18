@@ -1,5 +1,4 @@
 # Languages
-
 # # Configure the English version of the site.
 [en]
   languageCode = "en"
@@ -41,10 +40,6 @@
   name = "Despre noi"
   url = "/about/"
   weight = 20
-[[ro.menus.main]]
-  name = "Blog"
-  url = "/blog/"
-  weight = 30
 [[ro.menus.main]]
   name = "Contact"
   url = "/contact/"

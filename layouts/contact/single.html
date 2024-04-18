@@ -6,7 +6,7 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-10">
+            <div class="column is-9">
                 <nav class="level">
                     <div class="level-left">
                         {{ partial "components/breadcrumb.html" . }}
@@ -33,15 +33,25 @@
                     {{ end }}
                     <div class="content">
                         {{ .Content }}
+
+                        {{ partial "widgets/social/sharebuttons.html" . }}
                     </div>
+
                     {{ partial "blocks/image-gallery-carousel.html" . }}
+
                 </main>
             </div>
-            <div class="column is-2">
+            <div class="column is-3">
                 {{ partial "blocks/sidebar.html" . }}
             </div>
         </div>
     </div>
 </section>
+{{ partial "widgets/contact.html" . }}
+{{ with .Resources.ByType "image" }}
+{{ range . }}
+{{ .RelPermalink }}
+{{ end }}
+{{ end }}
 
 {{ end }}

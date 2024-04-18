@@ -1,6 +1,6 @@
 ---
 title: "About"
-
+banner: "img/banners/banner-1.jpg"
 description: "About"
 keywords: ["About", ""]
 sitemap:

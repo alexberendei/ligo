@@ -1,7 +1,7 @@
 {{ if isset .Site.Params "carousel" }}
 {{ if .Site.Params.carousel.enable }}
 {{ if gt (len .Site.Data.carousel) 0 }}
-
+{{ if and .IsHome (eq .Kind "home") (eq site.Params.carousel.front "normal") }}
 <div id="main-carousel" class="hero-carousel">
     {{ $translatedData := index site.Data.carousel site.Language.Lang }}
     {{ range $index, $element := sort $translatedData "weight" }}
@@ -15,7 +15,7 @@
     </figure>
     {{ end }}
 </div><!-- end carousel-container-->
-
+{{ end }}
 {{ end }}
 {{ end }}
 {{ end }}

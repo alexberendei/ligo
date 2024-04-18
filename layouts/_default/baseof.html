@@ -8,7 +8,7 @@
   {{ if hugo.IsProduction }}{{ if $.Site.Params.marketing.google_tag_manager }}{{ partialCached
   "widgets/marketing/google_GTM-body.html" . }}{{
   end }}{{ end }}
-  {{ partialCached "sections/header.html" . }}
+  {{ partial "sections/header.html" . }}
   {{ block "main" . }}{{ end }}
   {{ block "page_bottom" . }}{{ end }}
   {{ partialCached "sections/footer.html" . }}
@@ -18,5 +18,4 @@
   {{ end }}
   {{ partial "scripts.html" . }}
 </body>
-
 </html>

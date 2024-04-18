@@ -1,18 +1,102 @@
-{{- partial "functions/parse_theme" . -}}
-// main colors
-$primary: {{ .Scratch.Get "primary" }};
-$link: {{ .Scratch.Get "link" }};
-$info: {{ .Scratch.Get "info" }};
-$success: {{ .Scratch.Get "success" }};
-$warning: {{ .Scratch.Get "warning" }};
-$danger: {{ .Scratch.Get "danger" }};
-// variables
-@import "bulma-variables";
-// //FONTS
-@import "fonts";
-// // main bulma
-@import "bulma";
-// // extensions
-@import "bulma-carousel/src/sass";
-// //overrides
-@import "bulma-overrides";
+// VARIABLES
+// $red: #F00;
+// $blue: #00F;
+$primary: #00D1B2;
+$info: #209CEE;
+$success: #48C774;
+$warning: #FFDD57;
+$danger: #FF3860;
+$link: #3273DC;
+// greys
+$white: hsl(221, 14%, 99%);
+$light: hsl(221, 14%, 95%);
+$grey-lighter: hsl(221, 14%, 81%);
+$grey-light: hsl(221, 14%, 71%);
+$grey: hsl(221, 14%, 48%);
+$grey-dark: hsl(221, 14%, 29%);
+$grey-darker: hsl(221, 14%, 19%);
+$dark: hsl(221, 14%, 5%);
+$black: hsl(221, 14%, 1%);
+$body-color: hsl(221, 14%, 9%);
+//
+$weight-bold: 700;
+$weight-normal: 400;
+///////////////////////
+ 
+// BULMA LOAD
+// Override global Sass variables from the /utilities folder
+@use "bulma/sass/utilities" with (
+    // https://bulma.io/documentation/customize/list-of-sass-variables/    
+    $family-primary: '"Playfair Display", serif',
+    $family-secondary: '"Roboto", Arial, sans-serif',
+    $family-code: monospace,
+    $family-monospace: monospace,
+    $weight-bold: $weight-bold,
+    $weight-normal: $weight-normal,
+    $size-1: 3rem,
+    $size-2: 2.5rem,
+    $size-3: 2rem,
+    $size-4: 1.5rem,
+    $size-5: 1.25rem,
+    $size-6: 1rem,
+    $size-7: 0.75rem,
+    //
+    $primary: $primary,
+    $info: $info,
+    $success: $success,
+    $warning: $warning,
+    $danger: $danger,
+    $link: $link,
+    //
+    $white: $white,
+    $grey-light: $grey-light,
+    $grey-dark: $grey-dark,
+    // radius
+    $radius: 0.375rem,
+    $radius-small: 0.25rem,
+    $radius-large: 0.75rem,
+);
+@forward "bulma/sass/themes";
+@use "bulma/sass/base" with (
+        // MAIN BODY settings
+    $body-background-color: $white,
+    $body-min-width: 272px,
+    $body-rendering: optimizeLegibility,
+    $body-overflow-x: hidden,
+    $body-overflow-y: scroll,
+    $hr-background-color: $grey-light,
+);
+@use "bulma/sass/elements" with (
+    // BUTTON https://bulma.io/documentation/elements/button/
+    $button-padding-vertical: 1rem,
+    // BOX https://bulma.io/documentation/elements/box/
+    $box-background-color: $grey,
+    // TITLE https://bulma.io/documentation/elements/title/
+    $subtitle-color: $grey-dark,
+    $title-color: $dark,
+);
+@forward "bulma/sass/form";
+@use "bulma/sass/components" with (
+    // CARD https://bulma.io/documentation/components/card/
+    $card-background-color: $grey-lighter,
+    $card-color: $dark,
+    $card-radius: 0.75rem,
+    // NAVBAR https://bulma.io/documentation/components/navbar/
+    $navbar-background-color: $white,
+    $navbar-height: 4rem,
+    // DROPDOWN https://bulma.io/documentation/components/dropdown/
+    $dropdown-content-background-color: $white,
+    // PANEL https://bulma.io/documentation/components/panel/
+    $panel-heading-padding: .75em,
+);
+@forward "bulma/sass/grid";
+@forward "bulma/sass/layout";
+@forward "bulma/sass/base/skeleton";
+@forward "bulma/sass/helpers";
+// END BULMA LOAD
+
+// // BULMA EXTENSIONS
+@use "bulma-carousel/src/sass/index.sass";
+// END BULMA EXTENSIONS
+@use "bulma-overrides";
+@use "fonts";

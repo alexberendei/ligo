@@ -1,4 +1,4 @@
-<div class="has-background-info header-title" 
+<div class="has-background-info header-title py-6" 
 {{ if .Params.banner }}
     {{ $webpPath := printf "%s%s%s" "static/" .Params.banner ".webp" }}
     {{ if (fileExists  $webpPath ) }}

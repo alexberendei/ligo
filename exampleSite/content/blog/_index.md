@@ -1,4 +1,4 @@
 ---
 title: "Blog"
-robotsdisallow: true
+draft: false
 ---

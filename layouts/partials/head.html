@@ -20,12 +20,6 @@
   <meta name="googlebot" content="index,follow,archive" />
   {{ end }}
   {{ hugo.Generator }}
-  <!-- ###### Theme color -->
-  {{- partial "functions/parse_theme" . -}}
-  {{ if ne (.Scratch.Get "primary") "#fff" -}}
-  <meta name="theme-color" content="{{ .Scratch.Get " primary" -}}" />
-  <meta name="msapplication-TileColor" content="{{ .Scratch.Get " primary" -}}" />
-  {{- end -}}
   <!-- ###### Keywords & Description -->
   {{- if .Keywords }}
   <meta name="keywords" content="{{ delimit .Keywords " , " }}" />

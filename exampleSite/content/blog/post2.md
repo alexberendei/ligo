@@ -5,6 +5,8 @@ date: 2018-07-30T23:10:43+03:00
 banner: "img/banners/banner-2.jpg"
 thumb: "thumbs/img/banners/banner-2.jpg"
 
+images: "img/banners/banner-2.jpg"
+
 keywords: ["", ""]
 description: ""
 

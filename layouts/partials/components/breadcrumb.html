@@ -2,7 +2,7 @@
 {{ $dot.Scratch.Set "path" "" }}
 {{ $dot.Scratch.Set "breadcrumb" slice }}
 
-<nav class="breadcrumb" aria-label="breadcrumbs">
+<nav class="breadcrumb is-uppercase" aria-label="breadcrumbs">
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
     {{ $.Scratch.Add "path" .Site.BaseURL }}
 
