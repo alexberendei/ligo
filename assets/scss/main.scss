@@ -60,7 +60,7 @@ $weight-normal: 400;
 @use "bulma/sass/base" with (
         // MAIN BODY settings
     $body-background-color: $white,
-    $body-min-width: 272px,
+    $body-min-width: 380px,
     $body-rendering: optimizeLegibility,
     $body-overflow-x: hidden,
     $body-overflow-y: scroll,
@@ -86,6 +86,7 @@ $weight-normal: 400;
     $navbar-height: 4rem,
     // DROPDOWN https://bulma.io/documentation/components/dropdown/
     $dropdown-content-background-color: $white,
+    $dropdown-menu-min-width: 7rem,
     // PANEL https://bulma.io/documentation/components/panel/
     $panel-heading-padding: .75em,
 );

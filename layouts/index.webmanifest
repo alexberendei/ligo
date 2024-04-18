@@ -1,0 +1,23 @@
+{{- $scr := .Scratch -}}
+{
+    "name": "{{site.Title}}",
+    "short_name": "{{ slicestr site.Title 0 10 | safeHTML }}",
+    "lang": "{{ site.LanguageCode | default "en-us" }}",
+    "theme_color": "#00D1B2",
+    "background_color": "#FFFFFF",
+    "icons": [{
+      "src": "/img/favicons/favicon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }, {
+      "src": "/img/favicons/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+    "display": "standalone",
+    "start_url": "{{ "/" | relLangURL }}?utm_source=web_app_manifest"
+  }

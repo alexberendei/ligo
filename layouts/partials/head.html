@@ -52,31 +52,25 @@
   <!-- ##### JS ######  -->
   {{ $js := site.Data.assets.js }}
   <!-- ###### Favicon and apple touch icons ###### -->
+  <link rel="icon" href="{{ .Site.BaseURL }}img/favicons/favicon.svg">
+  <!-- for safari, mask-icon has to be of a single color and placed on a transparent background, browser gets the color from the attribute -->
+  <link rel="mask-icon" href="{{ .Site.BaseURL }}img/favicons/mask-icon.svg" color="#000000">
   <link rel="shortcut icon" href="{{ .Site.BaseURL }}img/favicons/favicon.ico" />
   <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="{{ .Site.BaseURL }}img/favicons/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="60x60" href="{{ .Site.BaseURL }}img/favicons/favicon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}img/favicons/favicon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ .Site.BaseURL }}img/favicons/favicon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ .Site.BaseURL }}img/favicons/favicon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="{{ .Site.BaseURL }}img/favicons/favicon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ .Site.BaseURL }}img/favicons/favicon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}img/favicons/favicon-180x180.png" />
-  <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}img/favicons/favicon-57x57.png" />
-  <link rel="icon" href="{{ .Site.BaseURL }}img/favicons/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" sizes="192x192" href="{{ .Site.BaseURL }}img/favicons/favicon-192x192.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}img/favicons/favicon-180x180.png" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-128x128.png" sizes="128x128" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-196x196.png" sizes="196x196" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" sizes="270x270" />
   <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}img/favicons/favicon-512x512.png" sizes="512x512" />
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ .Site.BaseURL }}img/favicons/favicon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}img/favicons/favicon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ .Site.BaseURL }}img/favicons/favicon-114x114.png" />
   <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
   <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="{{ .Site.BaseURL }}img/favicons/favicon-128x128.png" />
-  <meta name="msapplication-square150x150logo" content="{{ .Site.BaseURL }}img/favicons/favicon-152x152.png" />
-  <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}img/favicons/favicon-270x270.png" />
   <meta name="msapplication-config" content="none" />
+   <!-- WebManifest -->
+   <link rel="manifest" href="/manifest.webmanifest">
   <!-- ###### PRODUCTION | robots | DNS-prefetch | preconnect | verification  ###### -->
   {{ if hugo.IsProduction }}
   {{ if $.Site.Params.cookieBot }}
@@ -95,7 +89,7 @@
   {{ if $.Site.Params.search }}
   <link rel="dns-prefetch preconnect" href="//cdnjs.cloudflare.com" crossorigin />
   {{ end }}
-  <!-- Site verification -->
+   <!-- Site verification -->
   {{ if $.Site.Params.seo.webmaster_verifications.google }}
   <meta name="google-site-verification" content="{{ .Site.Params.seo.webmaster_verifications.google }}" />
   {{ end }}
@@ -143,7 +137,6 @@
   {{ if .IsHome | and (site.Params.cms.netlify_cms | default false) }}
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {{ end }}
-
   <!-- To make sure this renders only in the article page, we check the section -->
   {{ if eq .Pages "Section" "blog" }}
   <!-- Pagination meta tags for list pages only -->

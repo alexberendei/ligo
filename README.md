@@ -66,14 +66,10 @@ convert favicon-512x512.png -resize 16x16 favicon-16x16.png
 convert favicon-512x512.png -resize 32x32 favicon-32x32.png
 convert favicon-512x512.png -resize 60x60 favicon-60x60.png
 convert favicon-512x512.png -resize 72x72 favicon-72x72.png
-convert favicon-512x512.png -resize 114x114 favicon-114x114.png
-convert favicon-512x512.png -resize 120x120 favicon-120x120.png
 convert favicon-512x512.png -resize 128x128 favicon-128x128.png
-convert favicon-512x512.png -resize 144x144 favicon-144x144.png
-convert favicon-512x512.png -resize 152x152 favicon-152x152.png
 convert favicon-512x512.png -resize 196x196 favicon-196x196.png
 convert favicon-512x512.png -resize 270x270 favicon-270x270.png
-convert favicon.png -define icon:auto-resize=128,64,48,32,16 favicon.ico
+convert favicon.png -define icon:auto-resize=270,196,128,72,60,32,16 favicon.ico
 # generate thumbs
 mogrify -path ../thumbs/img/blog -auto-orient -thumbnail 768x blog/*.jpg
 

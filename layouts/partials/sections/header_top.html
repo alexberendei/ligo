@@ -15,7 +15,7 @@
                 {{ if .Site.Params.header_top.social }}
                 <div class="social">
                     {{ range site.Menus.social }}
-                    <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow" style="opacity: 1;">{{ .Pre
+                    <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow" class="icon">{{ .Pre
                         }}<span class='is-sr-only'>{{ .Name }}</span></a>
                     {{ end }}
                 </div>
@@ -24,12 +24,12 @@
             </div>
 
             {{ if .Site.Params.header_top.language }}
-            <div class="column dropdown i18n-dropdown">
+            <div class="column dropdown i18n-dropdown is-uppercase">
                 <div class="dropdown-trigger">
-                    <button class="button is-primary pl-5 pr-5 {{ if $show_current_language }}dropdown-toggle{{end}}"
+                    <button class="button is-primary is-uppercase pl-5 pr-5 {{ if $show_current_language }}dropdown-toggle{{end}}"
                         aria-haspopup="true" aria-controls="dropdown-menu" aria-label="{{ i18n " languages" |
                         default "Languages" }}">
-                        <span class="icon is-small">
+                        <span class="icon">
                             <i class="fas fa-globe mr-1" aria-hidden="true"></i>
                         </span>
                         {{- if $show_current_language -}}

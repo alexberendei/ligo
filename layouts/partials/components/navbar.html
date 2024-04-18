@@ -19,7 +19,7 @@
                 {{ range site.Menus.main }}
                     <a href="{{ .URL | relLangURL }}" class="navbar-item has-text-primary">{{ .Name }}</a>
                 {{ end }}
-                <div class="grid">
+                <div class="grid is-vcentered">
                     <div class="cell is-vertical">
                         {{ if .Site.Params.phone }}<p class="is-vertical my-1"><a class="button is-success is-fullwidth" href="tel:{{ .Site.Params.phone }}" rel="noopener noreferrer nofollow"><span class="icon"><i class="fas fa-phone is-large"></i></span><strong>{{ .Site.Params.phone }}</strong></a></p>{{end}}
                         {{ if .Site.Params.phone2 }}<p class="is-vertical my-1"><a class="button is-warning is-fullwidth" href="tel:{{ .Site.Params.phone2 }}" rel="noopener noreferrer nofollow"><span class="icon"><i class="fas fa-phone"></i></span><strong>{{ .Site.Params.phone2 }}</strong></a></p>{{ end }}

@@ -36,18 +36,15 @@
                             {{ else }}
                             {{ $svgPlaceholder := printf "%s" "static/img/placeholder.svg" }}
                             {{ if (fileExists $svgPlaceholder) -}}
-                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                data-src="{{ .Site.BaseURL}}img/placeholder.svg" alt="{{ .Title }}">
+                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL}}img/placeholder.svg" alt="{{ .Title }}">
                             {{- else }}
-                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                                data-src="{{ .Site.BaseURL}}img/placeholder.png" alt="{{ .Title }}">
+                            <img loading="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ .Site.BaseURL}}img/placeholder.png" alt="{{ .Title }}">
                             {{ end }}
                             {{ end }}
                         </figure>
                     </div>
                     <div class="media-content">
-                        <h6 class="title is-6"><a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title
-                                }}</a></h6>
+                        <h5 class="title is-5"><a href="{{ .Permalink }}" rel="noopener noreferrer nofollow">{{ .Title }}</a></h5>
                     </div>
                 </div>
                 {{ end }}

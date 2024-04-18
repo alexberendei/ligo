@@ -6,7 +6,7 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-9">
+            <div class="column is-10">
                 <nav class="level">
                     <div class="level-left">
                         {{ partial "components/breadcrumb.html" . }}
@@ -41,17 +41,10 @@
 
                 </main>
             </div>
-            <div class="column is-3">
+            <div class="column is-2">
                 {{ partial "blocks/sidebar.html" . }}
             </div>
         </div>
     </div>
 </section>
-{{ partial "widgets/show_related.html" . }}
-{{ with .Resources.ByType "image" }}
-{{ range . }}
-{{ .RelPermalink }}
-{{ end }}
-{{ end }}
-
 {{ end }}

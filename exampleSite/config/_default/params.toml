@@ -36,7 +36,7 @@ phone2 = "222 222 22 22"
 whatsappphone = "+40722222222"
 # show one block sticked on scroll with the phone numbers
 fixedphone = true
-whatsapp = true
+whatsapp = false
 ## Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
 address = {streetAddress = "Street", addressLocality = "City", addressRegion = "B", postalCode = "77777", addressCountry = "Romania", country_code = "RO" }
@@ -58,9 +58,9 @@ contact_links = [
 ## Social
 ############################
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
-banner = "cover.png"
-image = "cover.png" # base image
-images = ["cover.png"] # array of images
+banner = "img/cover.png"
+image = "img/cover.png" # base image
+images = ["img/cover.png"] # array of images
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
 twitter = ""
 fb_app_id = "" # 0123456789
@@ -84,7 +84,7 @@ copyright = "&copy; Copyright"
 ## Search
 # Enable Search in site type "true" for activation
 search = true
-page_show_related = true
+page_show_related = false
 ## SOCIAL
 instafeed = false # Enable instagram feeds widget
 sharebuttons = true # Enable in-built social sharing buttons? (true/false)
@@ -213,7 +213,7 @@ enable = true
 icon = "fa fa-phone fa-3x"
 title = "Do you want to see more?"
 subtitle = "We have all solutions for your needs."
-link_url = "#"
+link_url = "/contact"
 link_text = "Contact Us"
 
 [CTA_inverted]
@@ -221,7 +221,7 @@ enable = true
 icon = "fa fa-phone fa-3x"
 title = "Do you want to see more?"
 subtitle = "We have all solutions for your needs."
-link_url = "#"
+link_url = "/contact"
 link_text = "Contact Us"
 
 [recent_posts]

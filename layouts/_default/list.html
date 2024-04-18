@@ -6,7 +6,7 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-9">
+            <div class="column is-10">
                 {{ partial "components/breadcrumb.html" . }}
                 {{ range (.Paginator 6).Pages }}
                 <article class="media">
@@ -57,8 +57,7 @@
                 {{ end }}
                 {{ partial "components/pagination.html" . }}
             </div>
-            <div class="column is-3">
-                <!-- *** MENUS AND WIDGETS *** -->
+            <div class="column is-2">
                 {{ partialCached "blocks/sidebar.html" . }}
             </div>
         </div>
