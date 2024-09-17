@@ -12,7 +12,7 @@
 
 {{/* get other css libraries from /active folder */}}
 {{- $stylescss := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "scss/main_parsed.scss" . |
-resources.ToCSS $options| resources.PostCSS $postOptions -}}
+css.Sass $options| css.PostCSS $postOptions -}}
 {{ if fileExists "css/active/*.css" }}
 {{- $librariescss := resources.Get "css/active/bulma-carousel.min.css" | resources.Concat "css/libraries.css" }}
 {{ $style := slice $librariescss $stylescss | resources.Concat "css/style.css" }}
