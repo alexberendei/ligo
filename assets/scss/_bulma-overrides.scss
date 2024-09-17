@@ -1,8 +1,11 @@
 @use "bulma/sass/utilities/mixins" as *;
 @use "bulma/sass/utilities" as *;
 
-// HELPERS
-////
+:root {
+    --bulma-strong-color: $black;
+    --bulma-body-family: $family-secondary;
+}
+
 
 // VARIABLES
 $primary-main: $primary;
@@ -60,12 +63,13 @@ $gradient-radial-secondary: radial-gradient(
 );
 
 
-
 // CUSTOM UL
 ul.checklist {
     list-style: none;
     padding: 0;
+
     li {
+        font-family: $family-secondary;
         padding-left: 1.3em;
         margin-bottom: 0.5em;
         &:before {
@@ -133,6 +137,49 @@ ul.checklist {
     white-space: nowrap;
     overflow: hidden;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    font-family: $family-primary;
+    font-weight: 700;
+    // font-display: swap;
+}
+.has-text-white {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4,
+    .content h5,
+    .content h6 {
+        color: $white;
+    }
+    hr {
+        background-color: $white;
+    }
+    a {
+        color: lighten($color: $link, $amount: 70%);
+        &:hover {
+            color: lighten($color: $link, $amount: 95%);
+        }
+    }
+}
+
 //layout
 .is-middle {
     display: flex;
@@ -209,12 +256,6 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
 // / ATOMS
 // / **********
 
-.logo {
-    max-height: 80px !important;
-    @include desktop {
-        max-height: 100px !important;
-    }
-}
 
 /// **************
 /// **********
@@ -250,11 +291,6 @@ $positions: (("t", "top"), ("r", "right"), ("b", "bottom"), ("l", "left"));
         color: $link;
         &:after {
             border-color: currentColor;
-        }
-    }
-    @include desktop {
-        .has-dropdown .navbar-item {
-            // color: $text;
         }
     }
     .navbar-burger a {

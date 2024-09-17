@@ -27,8 +27,8 @@ $weight-normal: 400;
 // Override global Sass variables from the /utilities folder
 @use "bulma/sass/utilities" with (
     // https://bulma.io/documentation/customize/list-of-sass-variables/    
-    $family-primary: '"Playfair Display", serif',
-    $family-secondary: '"Roboto", Arial, sans-serif',
+    $family-primary: 'Playfair Display',
+    $family-secondary: 'Roboto',
     $family-code: monospace,
     $family-monospace: monospace,
     $weight-bold: $weight-bold,
@@ -72,8 +72,10 @@ $weight-normal: 400;
     // BOX https://bulma.io/documentation/elements/box/
     $box-background-color: $grey,
     // TITLE https://bulma.io/documentation/elements/title/
-    $subtitle-color: $grey-dark,
     $title-color: $dark,
+    $title-weight: 700,
+    $title-strong-weight: 900,
+    $subtitle-color: $grey-darker,
 );
 @forward "bulma/sass/form";
 @use "bulma/sass/components" with (
@@ -82,6 +84,7 @@ $weight-normal: 400;
     $card-color: $dark,
     $card-radius: 0.75rem,
     // NAVBAR https://bulma.io/documentation/components/navbar/
+    $navbar-item-img-max-height: 110px, // logo height
     $navbar-background-color: $white,
     $navbar-height: 4rem,
     // DROPDOWN https://bulma.io/documentation/components/dropdown/
