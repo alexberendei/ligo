@@ -1,106 +1,119 @@
-// VARIABLES
-// $red: #F00;
-// $blue: #00F;
-$primary: #00D1B2;
-$info: #209CEE;
-$success: #48C774;
-$warning: #FFDD57;
-$danger: #FF3860;
-$link: #3273DC;
-// greys
-$white: hsl(221, 14%, 99%);
-$light: hsl(221, 14%, 95%);
-$grey-lighter: hsl(221, 14%, 81%);
-$grey-light: hsl(221, 14%, 71%);
-$grey: hsl(221, 14%, 48%);
-$grey-dark: hsl(221, 14%, 29%);
-$grey-darker: hsl(221, 14%, 19%);
-$dark: hsl(221, 14%, 5%);
-$black: hsl(221, 14%, 1%);
-$body-color: hsl(221, 14%, 9%);
-//
-$weight-bold: 700;
-$weight-normal: 400;
-///////////////////////
- 
+@use "variables" as v;
+// END GLOBAL VARIABLES
 // BULMA LOAD
 // Override global Sass variables from the /utilities folder
 @use "bulma/sass/utilities" with (
-    // https://bulma.io/documentation/customize/list-of-sass-variables/    
-    $family-primary: 'Playfair Display',
-    $family-secondary: 'Roboto',
-    $family-code: monospace,
-    $family-monospace: monospace,
-    $weight-bold: $weight-bold,
-    $weight-normal: $weight-normal,
-    $size-1: 3rem,
-    $size-2: 2.5rem,
+    $family-sans-serif: v.$family-sans-serif,
+    $family-primary: v.$family-sans-serif,
+    $family-secondary: v.$family-serif,
+    $weight-bold: v.$weight-bold,
+    $weight-normal: v.$weight-normal,
+    $size-1: 2.5rem,
+    $size-2: 2.25rem,
     $size-3: 2rem,
     $size-4: 1.5rem,
     $size-5: 1.25rem,
     $size-6: 1rem,
     $size-7: 0.75rem,
-    //
-    $primary: $primary,
-    $info: $info,
-    $success: $success,
-    $warning: $warning,
-    $danger: $danger,
-    $link: $link,
-    //
-    $white: $white,
-    $grey-light: $grey-light,
-    $grey-dark: $grey-dark,
-    // radius
-    $radius: 0.375rem,
-    $radius-small: 0.25rem,
-    $radius-large: 0.75rem,
+    $primary: v.$primary,
+    $info: v.$info,
+    $success: v.$success,
+    $warning: v.$warning,
+    $danger: v.$danger,
+    $link: v.$link,
+    $white: v.$white,
+    $grey-light: v.$grey-light,
+    $grey-dark: v.$grey-dark,
+    $radius: v.$radius,
+    $radius-small: v.$radius-small,
+    $radius-large: v.$radius-large,
 );
-@forward "bulma/sass/themes";
 @use "bulma/sass/base" with (
-        // MAIN BODY settings
-    $body-background-color: $white,
+    $body-color: v.$body-color,
+    $body-background-color: v.$primary-light,
     $body-min-width: 380px,
     $body-rendering: optimizeLegibility,
     $body-overflow-x: hidden,
     $body-overflow-y: scroll,
-    $hr-background-color: $grey-light,
+    $hr-background-color: v.$grey-light,
 );
 @use "bulma/sass/elements" with (
     // BUTTON https://bulma.io/documentation/elements/button/
-    $button-padding-vertical: 1rem,
+    $button-family: v.$family-serif,
+    $button-padding-vertical: 0.75rem,
+    $button-padding-horizontal: 1rem,
     // BOX https://bulma.io/documentation/elements/box/
-    $box-background-color: $grey,
+    $box-background-color: v.$light,
+    $box-color: v.$body-color,
+    $box-radius: v.$radius,
+    $box-shadow: v.$shadow,
+    $box-padding: 1.5em,    
+    $box-link-hover-shadow:  v.$shadow,
+    $box-link-active-shadow:  v.$shadow,
     // TITLE https://bulma.io/documentation/elements/title/
-    $title-color: $dark,
-    $title-weight: 700,
-    $title-strong-weight: 900,
-    $subtitle-color: $grey-darker,
+    $title-family: '"Noto Serif", serif',
+    $title-color: v.$dark,
+    $subtitle-color: v.$grey-darker,
 );
-@forward "bulma/sass/form";
 @use "bulma/sass/components" with (
     // CARD https://bulma.io/documentation/components/card/
-    $card-background-color: $grey-lighter,
-    $card-color: $dark,
-    $card-radius: 0.75rem,
+    $card-background-color: v.$grey-lighter,
+    $card-color: v.$dark,
+    $card-radius: 0,
+    $card-shadow: v.$shadow,
     // NAVBAR https://bulma.io/documentation/components/navbar/
-    $navbar-item-img-max-height: 110px, // logo height
-    $navbar-background-color: $white,
+    $navbar-item-img-max-height: 65px, // logo height
+    $navbar-background-color: transparent,
     $navbar-height: 4rem,
     // DROPDOWN https://bulma.io/documentation/components/dropdown/
-    $dropdown-content-background-color: $white,
+    $dropdown-content-background-color: v.$white,
     $dropdown-menu-min-width: 7rem,
     // PANEL https://bulma.io/documentation/components/panel/
     $panel-heading-padding: .75em,
+    $panel-block-color: v.$primary,
+    $panel-block-active-color: v.$primary-active,
+    $panel-block-hover-background-color: v.$primary-hover,
+    // BREADCRUMB https://bulma.io/documentation/components/breadcrumb/
+    $breadcrumb-item-color: v.$link,
+    $breadcrumb-item-hover-color: v.$link-hover,
+    $breadcrumb-item-active-color: v.$link-active,
+    $breadcrumb-item-padding-vertical: 0,
+    $breadcrumb-item-padding-horizontal: 0.75em,
+    $breadcrumb-item-separator-color: v.$grey,
 );
+@use "bulma/sass/layout" with (
+    // HERO https://bulma.io/documentation/layout/hero/
+    $hero-body-padding: 3rem 1.5rem,
+    $hero-body-padding-medium: 9rem 4.5rem,
+    $hero-body-padding-large: 18rem 6rem,
+    // SECTION https://bulma.io/documentation/layout/section/
+    $section-padding: 4rem 2rem, // default 3rem 1.5rem
+    $section-padding-desktop: 4rem 4rem, // default 3rem 3rem
+    $section-padding-medium: 9rem 4.5rem,
+    $section-padding-large: 18rem 6rem,
+);
+@forward "bulma/sass/form";
 @forward "bulma/sass/grid";
-@forward "bulma/sass/layout";
 @forward "bulma/sass/base/skeleton";
 @forward "bulma/sass/helpers";
+@forward "bulma/sass/themes";
 // END BULMA LOAD
 
 // // BULMA EXTENSIONS
 @use "bulma-carousel/src/sass/index.sass";
 // END BULMA EXTENSIONS
 @use "bulma-overrides";
-@use "fonts";
+
+// FONTS
+// // import with hugo modules
+@use "@fortawesome/fontawesome-free/scss/fontawesome.scss" as FA;
+// You can include all the other styles the same as before
+@use "@fortawesome/fontawesome-free/scss/regular.scss";
+@use "@fortawesome/fontawesome-free/scss/solid.scss";
+@use "@fortawesome/fontawesome-free/scss/brands.scss";
+@use "@fortawesome/fontawesome-free/scss/v4-shims.scss";
+// Import the Google Font
+@import "noto-serif/latin-ext-400.css" as NS4;
+@import "noto-serif/latin-ext-700.css" as NS7;
+@import "nunito/latin-ext-400.css" as N4;
+@import "nunito/latin-ext-700.css" as N7;

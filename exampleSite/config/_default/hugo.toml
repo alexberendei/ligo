@@ -89,13 +89,13 @@ canonifyurls = true
 [module]
 [module.hugoVersion]
 extended = true
-min = "0.125.0"
+min = "0.141.0"
 # 1. npm install  -> 2. mount files from node_modules
 [[module.mounts]]
-    source = "node_modules/@fontsource/playfair-display/files"
+    source = "node_modules/@fontsource/playfair-display"
     target = "static/webfonts"
 [[module.mounts]]
-    source = "node_modules/@fontsource/roboto/files"
+    source = "node_modules/@fontsource/roboto"
     target = "static/webfonts"
 [[module.mounts]]
     source = "node_modules/@fortawesome/fontawesome-free/webfonts"

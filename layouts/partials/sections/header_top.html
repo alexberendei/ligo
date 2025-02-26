@@ -1,27 +1,28 @@
 {{ if .Site.Params.header_top.enable }}
 {{ $show_current_language := site.Params.header_top.language | default false }}
-<div class="hero-top p-1 has-background-primary has-text-white has-text-centered">
+<div class="hero-top has-background-primary is-size-7 has-text-white has-text-centered">
     <div class="container">
-        <div class="columns is-vcentered">
-            <div class="column is-6 has-text-left-desktop">
-                <p><i class="fas fa-map-marker"></i> {{ .Site.Params.header_top.text }}</p>
+        <div class="columns is-mobile is-multiline is-vcentered">
+            <div class="column is-12-mobile is-6-tablet has-text-left-desktop">
+                <p><i class="fas fa-map-marker px-1"></i> {{ .Site.Params.addressfull }}</p>
             </div>
-            <div class="column is-hidden-mobile">
+            <div class="column is-hidden-touch">
                 <p>
                     {{/* <i class="fas fa-envelope"></i> */}}
-                    {{ .Site.Params.header_top.email }}</p>
-            </div>
-            <div class="column is-2 has-text-right-desktop">
-                {{ if .Site.Params.header_top.social }}
+                    {{ .Site.Params.email }}</p>
+            </div> 
+            {{ if site.Menus.social }}
+            <div class="column is-2-tablet has-text-right-desktop">
+               
                 <div class="social">
                     {{ range site.Menus.social }}
-                    <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow" class="icon">{{ .Pre
-                        }}<span class='is-sr-only'>{{ .Name }}</span></a>
+                    <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer nofollow" class="icon">{{ .Pre }}<span class='is-sr-only'>{{ .Name }}</span></a>
                     {{ end }}
                 </div>
-                {{ end }}
+            
 
             </div>
+            {{ end }}
 
             {{ if .Site.Params.header_top.language }}
             <div class="column dropdown i18n-dropdown is-uppercase">

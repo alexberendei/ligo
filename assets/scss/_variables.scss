@@ -1,0 +1,78 @@
+// COLORS
+$scheme-h: 207 !default;
+$scheme-s: 16% !default;
+$dark-l: 10% !default;
+$light-l: 90% !default;
+
+@function adjust-light($color, $lightness) {
+  $hue: hue($color);  
+  $saturation: saturation($color);
+  @return hsl($hue, $saturation, $lightness);
+}
+
+// $primary: hsl(26, 17%, 37%);
+// $primary: hsl(207, 16%, 56%);
+$primary: hsl(207, 16%, 45%);
+$primary-light: adjust-light($primary, 92%);
+$primary-dark: adjust-light($primary, 15%);
+$primary-active: adjust-light($primary, 60%);
+$primary-hover: adjust-light($primary, 52%);
+
+$link: hsl(195, 11%, 16%);
+$link-light: adjust-light($link, 90%);
+$link-dark: adjust-light($link, 10%);
+$link-active: adjust-light($link, 35%);
+$link-hover: adjust-light($link, 30%);
+
+// $info: hsl(207, 16%, 56%);
+$info: hsl(26, 17%, 37%);
+$info-light: adjust-light($info, 90%);
+$info-dark: adjust-light($info, 10%);
+$info-active: adjust-light($info,65%);
+$info-hover: adjust-light($info, 60%);
+
+$success: hsl(125, 5%, 56%);
+$success-light: adjust-light($success, 90%);
+$success-dark: adjust-light($success, 10%);
+$success-active: adjust-light($success, 65%);
+$success-hover: adjust-light($success, 60%);
+
+$warning: hsl(33, 13%, 71%);
+$warning-light: adjust-light($warning, 90%);
+$warning-dark: adjust-light($warning, 10%);
+$warning-active: adjust-light($warning, 78%);
+$warning-hover: adjust-light($warning, 74%);
+
+$danger: hsl(26, 55%, 37%);
+$danger-light: adjust-light($danger, 90%);
+$danger-dark: adjust-light($danger, 10%);
+$danger-active: adjust-light($danger, 45%);
+$danger-hover: adjust-light($danger, 40%);
+// GREYS
+$grey: hsl(221, 14%, 48%);
+$white: adjust-light($grey, 98%);
+$light: adjust-light($grey, 95%);
+$grey-lighter: adjust-light($grey, 90%);
+$grey-light: adjust-light($grey, 80%);
+$grey-dark: adjust-light($grey, 20%);
+$grey-darker: adjust-light($grey, 10%);
+$dark: adjust-light($grey, 5%);
+$black: adjust-light($grey, 2%);
+$body-color: $dark;
+// GRADIENTS
+// LINEAR
+// example as primary gradient: @include v.gradient-linear(360deg, v.$primary, .7, v.$primary-dark, 1);
+@mixin gradient-linear($degree: 90deg, $main: $primary,$tr1: 1 , $secondary: $primary-dark,$tr2: 1  ) {
+    background: linear-gradient($degree, rgba($main, $tr1 ) 0%, rgba($secondary, $tr2) 100%);
+  }
+// FONTS
+$weight-bold: 700;
+$weight-normal: 400;
+$family-sans-serif: "Roboto", sans-serif;
+$family-serif: "Playfair Display", serif;
+// RADIUS
+$radius: 0.375rem;
+$radius-small: 0.25rem;
+$radius-large: 0.75rem;
+// SHADOWS
+$shadow: inset 0 1px 2px rgba($grey-light, 0.2), 0 0 0 1px $grey-light;

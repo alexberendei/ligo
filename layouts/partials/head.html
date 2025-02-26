@@ -2,7 +2,7 @@
   {{ if .Site.Params.marketing.google_ga4 }} {{ partial "widgets/marketing/google_GTM.html" . }} {{ end }}
   <!-- ###### Title  ###### -->
   <title itemprop="name">
-    {{ if not .IsHome }}{{ .Title }} |{{ end }}{{ site.Title }}
+    {{ if not .IsHome }}{{ .Title }} | {{ end }}{{ site.Title }}
   </title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />

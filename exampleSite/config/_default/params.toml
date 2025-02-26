@@ -39,6 +39,7 @@ fixedphone = true
 whatsapp = false
 ## Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
+addressfull = "Street, City, B, 77777, Romania"
 address = {streetAddress = "Street", addressLocality = "City", addressRegion = "B", postalCode = "77777", addressCountry = "Romania", country_code = "RO" }
 # Geographic coordinates -> To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
 coordinates = {latitude = "40.000000", longitude = "20.000000"}
@@ -159,8 +160,6 @@ product_categories = true
 ############################
 [header_top]
 enable = true
-text = "Address - Street City Country"
-email = "contact@example.org"
 # to display it, one should be true (social or language)
 social = true
 language = true # display languages as dropdown

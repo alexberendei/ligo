@@ -5,7 +5,6 @@
   languageName = "English"
   contentDir = "content"  # Uncomment for multi-lingual
   weight = 1
-
 [[en.menus.main]]
   name = "Home"
   url = "/"
@@ -23,7 +22,32 @@
   url = "/contact/"
   weight = 40
 
+[[en.menus.social]]
+    weight = 1
+    name = "GitHub"
+    url = "https://github.com/"
+    pre = "<i class='fa fa-github'></i>"
+[[en.menus.social]]
+    weight = 2
+    name = "Facebook"
+    url = "http://facebook.com"
+    pre = "<i class='fa fa-facebook'></i>"
+[[en.menus.social]]
+    weight = 3
+    name = "Twitter"
+    url = "http://twitter.com"
+    pre = "<i class='fa fa-twitter'></i>"
+[[en.menus.social]]
+    weight = 4
+    name = "Email"
+    url = "mailto:your@email.com"
+    pre = "<i class='fa fa-envelope'></i>"
 
+[[en.menus.footerbar]]
+    weight = 1
+    name = "Footer Link"
+    url = "url"
+    pre = ""
 
 # Uncomment the lines below to configure a second language.
 [ro]
@@ -65,3 +89,9 @@
     name = "Email"
     url = "mailto:your@email.com"
     pre = "<i class='fa fa-envelope'></i>"
+
+[[ro.menus.footerbar]]
+    weight = 1
+    name = "Footer Link"
+    url = "url"
+    pre = ""

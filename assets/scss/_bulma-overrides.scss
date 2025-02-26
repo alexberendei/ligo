@@ -1,67 +1,37 @@
 @use "bulma/sass/utilities/mixins" as *;
 @use "bulma/sass/utilities" as *;
+@use "variables" as v;
 
-:root {
-    --bulma-strong-color: $black;
-    --bulma-body-family: $family-secondary;
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width:100%;
+}
+
+body {
+    width:100%;
 }
 
 
-// VARIABLES
-$primary-main: $primary;
-$primary-light: lighten($primary, 30%);
-$primary-hover: darken($primary, 20%);
-$primary-active: darken($primary, 40%);
-$primary-dark: darken($primary, 60%);
-$link-main: $link;
-$link-light: lighten($link, 30%);
-$link-hover: darken($link, 20%);
-$link-active: darken($link, 40%);
-$link-dark: darken($link, 60%);
-$info-main: $info;
-$info-light: lighten($info, 30%);
-$info-hover: darken($info, 20%);
-$info-active: darken($info, 40%);
-$info-dark: darken($info, 60%);
-$success-main: $success;
-$success-light: lighten($success, 30%);
-$success-hover: darken($success, 20%);
-$success-active: darken($success, 40%);
-$success-dark: darken($success, 60%);
-$warning-main: $warning;
-$warning-light: lighten($warning, 30%);
-$warning-hover: darken($warning, 20%);
-$warning-active: darken($warning, 40%);
-$warning-dark: darken($warning, 60%);
-$danger-main: $danger;
-$danger-light: lighten($danger, 30%);
-$danger-hover: darken($danger, 20%);
-$danger-active: darken($danger, 40%);
-$danger-dark: darken($danger, 60%);
-// Gradients
-// LINEAR
-$gradient-linear-primary: linear-gradient(
-    90deg,
-    rgba($primary-main, 1) 0%,
-    rgba($primary-dark, 1) 100%
-);
-$gradient-linear-secondary: linear-gradient(
-    90deg,
-    rgba($primary-main, 1) 0%,
-    rgba($primary-light, 1) 100%
-);
-// RADIAL
-$gradient-radial-primary: radial-gradient(
-    circle,
-    rgba($primary-main, 1) 0%,
-    rgba($primary-dark, 1) 100%
-);
-$gradient-radial-secondary: radial-gradient(
-    circle,
-    rgba($primary-main, 1) 0%,
-    rgba($primary-light, 1) 100%
-);
+:root {
+    // --bulma-body-color: $body-color;
+    // --bulma-title-family:  '"Nunito", sans-serif';
+    // --bulma-body-family:  '"Nunito", sans-serif';
+    --bulma-strong-color: v.$black;
+    // --bulma-body-family: $family-secondary;
+    // panel
+    // --bulma-label-color: v.$link-dark;
+    // --bulma-content-heading-color: $link-dark;
+    --bulma-text-strong: v.$black;
+}
 
+// / **************
+// / **********
+// / ATOMS
+// / **********
 
 // CUSTOM UL
 ul.checklist {
@@ -150,8 +120,8 @@ h6,
 .content h4,
 .content h5,
 .content h6 {
-    font-family: $family-primary;
-    font-weight: 700;
+    font-family: $family-secondary;
+    font-weight: $weight-bold;
     // font-display: swap;
 }
 .has-text-white {
